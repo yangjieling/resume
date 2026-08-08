@@ -1,0 +1,1663 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>杨杰灵 · 个人简历</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #14212b;
+      --ink-soft: #3a4a56;
+      --muted: #6b7a86;
+      --line: #d7e0e7;
+      --paper: #f3f6f8;
+      --panel: #ffffff;
+      --accent: #0f766e;
+      --accent-soft: #d9f0ed;
+      --accent-deep: #0b5c56;
+      --rail: #c5d4dc;
+      --shadow: 0 18px 50px rgba(20, 33, 43, 0.08);
+      --radius: 18px;
+      --nav-w: 240px;
+      --font-display: "Syne", "Noto Sans SC", sans-serif;
+      --font-body: "Noto Sans SC", "PingFang SC", "Hiragino Sans GB", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: var(--font-body);
+      background:
+        radial-gradient(1200px 600px at 10% -10%, #dff3f0 0%, transparent 55%),
+        radial-gradient(900px 500px at 100% 0%, #e8eef3 0%, transparent 45%),
+        linear-gradient(180deg, #eef3f6 0%, var(--paper) 40%, #e9eef2 100%);
+      line-height: 1.7;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    .shell {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 28px 0 72px;
+      display: grid;
+      grid-template-columns: var(--nav-w) minmax(0, 1fr);
+      gap: 28px;
+      align-items: start;
+    }
+
+    .side {
+      position: sticky;
+      top: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .brand-card,
+    .nav,
+    .section,
+    .hero {
+      background: color-mix(in srgb, var(--panel) 92%, transparent);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(215, 224, 231, 0.9);
+      box-shadow: var(--shadow);
+      border-radius: var(--radius);
+    }
+
+    .brand-card {
+      padding: 20px 18px;
+      background:
+        linear-gradient(160deg, rgba(15, 118, 110, 0.12), transparent 55%),
+        var(--panel);
+    }
+
+    .brand-card .name {
+      font-family: var(--font-display);
+      font-size: 1.55rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      line-height: 1.2;
+      margin: 0 0 8px;
+    }
+
+    .brand-card .role {
+      margin: 0;
+      color: var(--accent-deep);
+      font-weight: 600;
+      font-size: 0.92rem;
+    }
+
+    .brand-card .meta {
+      margin: 14px 0 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 8px;
+      font-size: 0.86rem;
+      color: var(--ink-soft);
+    }
+
+    .brand-card .meta li {
+      display: flex;
+      gap: 8px;
+      align-items: baseline;
+    }
+
+    .brand-card .meta span {
+      color: var(--muted);
+      min-width: 2.5em;
+    }
+
+    .nav {
+      padding: 12px;
+      display: grid;
+      gap: 6px;
+      max-height: calc(100vh - 280px);
+      overflow: auto;
+    }
+
+    .nav a {
+      display: block;
+      padding: 11px 14px;
+      border-radius: 12px;
+      color: var(--ink-soft);
+      font-size: 0.94rem;
+      font-weight: 500;
+      border: 1px solid transparent;
+      transition: background .2s ease, color .2s ease, border-color .2s ease, transform .2s ease;
+    }
+
+    .nav a:hover {
+      background: var(--accent-soft);
+      color: var(--accent-deep);
+      transform: translateX(2px);
+    }
+
+    .nav a.active {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+
+    .nav-group {
+      display: grid;
+      gap: 4px;
+    }
+
+    .nav-group > summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 11px 14px;
+      border-radius: 12px;
+      color: var(--ink-soft);
+      font-size: 0.94rem;
+      font-weight: 600;
+      border: 1px solid transparent;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      user-select: none;
+      transition: background .2s ease, color .2s ease;
+    }
+
+    .nav-group > summary::-webkit-details-marker { display: none; }
+
+    .nav-group > summary::after {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-right: 2px solid currentColor;
+      border-bottom: 2px solid currentColor;
+      transform: rotate(45deg);
+      transition: transform .2s ease;
+      opacity: 0.7;
+      flex: 0 0 auto;
+      margin-top: -4px;
+    }
+
+    .nav-group[open] > summary::after {
+      transform: rotate(-135deg);
+      margin-top: 2px;
+    }
+
+    .nav-group > summary:hover,
+    .nav-group.is-active > summary {
+      background: var(--accent-soft);
+      color: var(--accent-deep);
+    }
+
+    .nav-sub {
+      display: grid;
+      gap: 2px;
+      padding: 2px 0 4px 8px;
+      margin: 0;
+    }
+
+    .nav-sub a {
+      padding: 8px 12px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      line-height: 1.35;
+      color: var(--muted);
+    }
+
+    .nav-sub a.active {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .nav-company {
+      margin: 4px 4px 2px;
+      padding: 4px 8px 2px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: var(--accent-deep);
+      opacity: 0.85;
+    }
+
+    .main { display: grid; gap: 22px; min-width: 0; }
+
+    .hero {
+      padding: 28px 30px;
+      display: grid;
+      gap: 14px;
+      background:
+        linear-gradient(135deg, rgba(15, 118, 110, 0.14), transparent 42%),
+        linear-gradient(180deg, #fff, #f7fafb);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -40px;
+      top: -50px;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(15, 118, 110, 0.18), transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 2.7rem);
+      letter-spacing: 0.03em;
+      line-height: 1.15;
+    }
+
+    .hero .subtitle {
+      margin: 0;
+      max-width: 48ch;
+      color: var(--ink-soft);
+      font-size: 1.02rem;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent-deep);
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+
+    .section {
+      padding: 26px 28px 28px;
+      scroll-margin-top: 24px;
+    }
+
+    .section h2 {
+      margin: 0 0 18px;
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      letter-spacing: 0.04em;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section h2::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 5px var(--accent-soft);
+    }
+
+    .summary-list,
+    .skill-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 12px;
+    }
+
+    .summary-list li,
+    .skill-list li {
+      position: relative;
+      padding: 14px 16px 14px 40px;
+      background: linear-gradient(90deg, #f4faf9, #fff 40%);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+    }
+
+    .summary-list li::before,
+    .skill-list li::before {
+      content: "";
+      position: absolute;
+      left: 16px;
+      top: 1.35em;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .skill-list li strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--accent-deep);
+      font-weight: 700;
+    }
+
+    .timeline {
+      position: relative;
+      display: grid;
+      gap: 28px;
+      padding-left: 28px;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 7px;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      background: linear-gradient(180deg, var(--accent), var(--rail));
+    }
+
+    .company {
+      position: relative;
+    }
+
+    .company::before {
+      content: "";
+      position: absolute;
+      left: -28px;
+      top: 18px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: #fff;
+      border: 3px solid var(--accent);
+      box-shadow: 0 0 0 4px var(--accent-soft);
+      z-index: 1;
+    }
+
+    .company-card {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .company-head {
+      width: 100%;
+      padding: 18px 20px;
+      background:
+        linear-gradient(90deg, rgba(15, 118, 110, 0.1), transparent 70%),
+        #f8fbfb;
+      border: 0;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 8px 16px;
+      align-items: center;
+      cursor: pointer;
+      font: inherit;
+      color: inherit;
+      text-align: left;
+      transition: background .2s ease;
+    }
+
+    .company-head:hover {
+      background:
+        linear-gradient(90deg, rgba(15, 118, 110, 0.16), transparent 70%),
+        #f1f8f7;
+    }
+
+    .company-head:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: -2px;
+    }
+
+    .company-head .head-main {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+      flex: 1 1 auto;
+    }
+
+    .company-head .chevron {
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      display: inline-grid;
+      place-items: center;
+      background: #fff;
+      border: 1px solid var(--line);
+      color: var(--accent-deep);
+      flex: 0 0 auto;
+      transition: transform .25s ease, background .2s ease, border-color .2s ease;
+    }
+
+    .company-head .chevron svg {
+      width: 14px;
+      height: 14px;
+      display: block;
+    }
+
+    .company-card.is-collapsed .company-head {
+      border-bottom-color: transparent;
+    }
+
+    .company-card.is-collapsed .chevron {
+      transform: rotate(-90deg);
+      background: var(--accent-soft);
+      border-color: transparent;
+    }
+
+    .company-head h3 {
+      margin: 0;
+      font-size: 1.12rem;
+      font-weight: 700;
+    }
+
+    .company-head .period {
+      color: var(--accent-deep);
+      font-weight: 600;
+      font-size: 0.92rem;
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+
+    .company-head .hint {
+      margin-left: 8px;
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 500;
+    }
+
+    .projects { display: grid; gap: 0; }
+
+    .company-card.is-collapsed .projects {
+      display: none;
+    }
+
+    .timeline-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: -6px 0 16px;
+    }
+
+    .timeline-toolbar button {
+      appearance: none;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--ink-soft);
+      border-radius: 999px;
+      padding: 6px 14px;
+      font: inherit;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background .2s ease, color .2s ease, border-color .2s ease;
+    }
+
+    .timeline-toolbar button:hover {
+      background: var(--accent-soft);
+      color: var(--accent-deep);
+      border-color: transparent;
+    }
+
+    .project {
+      border-top: 1px solid var(--line);
+      scroll-margin-top: 24px;
+    }
+
+    .project:first-child { border-top: 0; }
+
+    .project-head {
+      width: 100%;
+      padding: 16px 20px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px 12px;
+      border: 0;
+      background: #fff;
+      cursor: pointer;
+      font: inherit;
+      color: inherit;
+      text-align: left;
+      transition: background .2s ease;
+    }
+
+    .project-head:hover {
+      background: #f4faf9;
+    }
+
+    .project-head:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: -2px;
+    }
+
+    .project-head .head-main {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+    }
+
+    .project-head .chevron {
+      width: 24px;
+      height: 24px;
+      border-radius: 7px;
+      display: inline-grid;
+      place-items: center;
+      background: var(--accent-soft);
+      color: var(--accent-deep);
+      flex: 0 0 auto;
+      transition: transform .25s ease, background .2s ease;
+    }
+
+    .project-head .chevron svg {
+      width: 12px;
+      height: 12px;
+      display: block;
+    }
+
+    .project.is-collapsed .project-head .chevron {
+      transform: rotate(-90deg);
+      background: #eef3f6;
+    }
+
+    .project-title {
+      margin: 0;
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: var(--ink);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .project-title::before {
+      content: "";
+      width: 4px;
+      height: 1.1em;
+      border-radius: 4px;
+      background: var(--accent);
+      flex: 0 0 auto;
+    }
+
+    .project-head > .hint {
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    .project-body {
+      padding: 0 20px 20px;
+    }
+
+    .project.is-collapsed .project-body {
+      display: none;
+    }
+
+    .block {
+      margin: 0 0 12px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      background: #f7fafb;
+      border: 1px solid #e6eef2;
+    }
+
+    .block:last-child { margin-bottom: 0; }
+
+    .block .label {
+      display: inline-block;
+      margin-bottom: 6px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: var(--accent-deep);
+      text-transform: uppercase;
+    }
+
+    .block p,
+    .block ul {
+      margin: 0;
+      color: var(--ink-soft);
+      font-size: 0.94rem;
+    }
+
+    .block ul {
+      padding-left: 1.15em;
+      display: grid;
+      gap: 6px;
+    }
+
+    .challenge-item {
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px dashed #d5e1e7;
+    }
+
+    .challenge-item:first-of-type {
+      margin-top: 8px;
+      padding-top: 0;
+      border-top: 0;
+    }
+
+    .challenge-item .name {
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+
+    .flow {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-items: center;
+    }
+
+    .flow span {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: #fff;
+      border: 1px solid var(--line);
+      font-size: 0.82rem;
+      color: var(--ink-soft);
+    }
+
+    .flow i {
+      font-style: normal;
+      color: var(--accent);
+      font-weight: 700;
+      margin: 0 2px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .tags span {
+      padding: 4px 10px;
+      border-radius: 8px;
+      background: var(--accent-soft);
+      color: var(--accent-deep);
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .edu-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 12px;
+    }
+
+    .edu-list li {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 8px 20px;
+      padding: 16px 18px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: linear-gradient(90deg, #f4faf9, #fff 50%);
+    }
+
+    .edu-list .school {
+      font-weight: 700;
+    }
+
+    .edu-list .degree {
+      color: var(--ink-soft);
+      margin-top: 2px;
+      font-size: 0.92rem;
+    }
+
+    .edu-list .period {
+      color: var(--accent-deep);
+      font-weight: 600;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .footer-note {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.82rem;
+      padding: 8px 0 0;
+    }
+
+    @media (max-width: 900px) {
+      .shell {
+        grid-template-columns: 1fr;
+        width: min(100% - 20px, 1180px);
+        padding-top: 16px;
+      }
+
+      .side {
+        position: static;
+      }
+
+      .nav {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .brand-card .name { font-size: 1.35rem; }
+      .section, .hero { padding: 20px; }
+      .timeline { padding-left: 22px; }
+      .company::before { left: -22px; width: 14px; height: 14px; }
+    }
+
+    @media (max-width: 560px) {
+      .nav { grid-template-columns: 1fr; }
+      .company-head { flex-direction: column; }
+      .edu-list li { flex-direction: column; }
+    }
+
+    @media print {
+      body { background: #fff; }
+      .shell { width: 100%; display: block; padding: 0; }
+      .side { display: none; }
+      .timeline-toolbar { display: none; }
+      .company-head .chevron,
+      .company-head .hint { display: none; }
+      .company-card.is-collapsed .projects { display: grid; }
+      .project.is-collapsed .project-body { display: block; }
+      .project-head .chevron,
+      .project-head > .hint { display: none; }
+      .brand-card, .nav, .section, .hero, .company-card, .block {
+        box-shadow: none;
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <aside class="side">
+      <div class="brand-card">
+        <p class="name">杨杰灵</p>
+        <p class="role">资深微服务架构师</p>
+        <ul class="meta">
+          <li><span>电话</span>15611576308</li>
+          <li><span>邮箱</span>yuanyi3136@163.com</li>
+          <li><span>地点</span>北京·朝阳</li>
+          <li><span>状态</span>在职 · 面议</li>
+        </ul>
+      </div>
+      <nav class="nav" aria-label="简历目录">
+        <a href="#summary" class="nav-section active">个人总结</a>
+        <a href="#skills" class="nav-section">专业技能</a>
+        <a href="#experience" class="nav-section">工作经历</a>
+        <details class="nav-group" open>
+          <summary>项目</summary>
+          <div class="nav-sub">
+            <div class="nav-company">京东</div>
+            <a href="#proj-ai-coding" data-project>AI 全链路研发效能平台</a>
+            <div class="nav-company">大搜车</div>
+            <a href="#proj-super-4s" data-project>汽车经销商 SaaS 数字化中台</a>
+            <a href="#proj-data-migration" data-project>分布式数据迁移与一致性保障平台</a>
+            <a href="#proj-api-platform" data-project>API 治理与智能测试平台</a>
+            <div class="nav-company">软通动力</div>
+            <a href="#proj-auto-insurance" data-project>车险核心承保微服务系统</a>
+            <a href="#proj-value-added" data-project>车险增值服务交易与履约平台</a>
+            <div class="nav-company">中科软</div>
+            <a href="#proj-national-policy" data-project>全国车险统一出单与监管对接平台</a>
+            <a href="#proj-warranty" data-project>车辆零部件延保定价与出单系统</a>
+            <a href="#proj-used-car" data-project>二手车承保理赔信息查询服务</a>
+          </div>
+        </details>
+        <a href="#education" class="nav-section">教育经历</a>
+      </nav>
+    </aside>
+
+    <main class="main">
+      <header class="hero">
+        <h1>杨杰灵</h1>
+        <p class="subtitle">多年后端研发资深微服务架构师，兼具业务 SaaS 系统架构、线上运维调优、研发效能平台全链路落地能力。</p>
+        <div class="chips">
+          <span class="chip">微服务架构</span>
+          <span class="chip">研发效能平台</span>
+          <span class="chip">AI Coding</span>
+          <span class="chip">数据迁移</span>
+          <span class="chip">云原生运维</span>
+        </div>
+      </header>
+
+      <section class="section" id="summary">
+        <h2>个人总结</h2>
+        <ul class="summary-list">
+          <li>多年后端研发资深微服务架构师，兼具业务 SaaS 系统架构、线上运维调优、研发效能平台全链路落地能力。</li>
+          <li>深耕研发效能平台建设，自研百万级 API 接口治理平台、AI Coding 一站式编码平台，落地代码图谱化、多语言 AST 静态解析、大模型驱动自动化研发全流程，自研扫描组件已申请专利。</li>
+          <li>精通阿里云体系 ACK/ARMS/DAS，具备海量数据迁移、分库分表改造、跨系统数据一致性落地实战经验，擅长线上故障排查、系统性能调优。</li>
+          <li>深入研读 Spring Cloud、MyBatis、Redis、消息中间件底层源码，熟练落地分布式锁、可靠消息最终一致性分布式事务方案。</li>
+          <li>兼顾业务开发与底层工具封装，可基于 AST 语法树、底层能力开发内部二方组件，掌握 Java/Python/React 多技术栈协同开发。</li>
+          <li>擅长跨团队沟通协调，主导需求调研、架构评审、任务分配，统筹多版本系统迁移、集团多仓库统一治理类大型项目落地。</li>
+        </ul>
+      </section>
+
+      <section class="section" id="skills">
+        <h2>专业技能</h2>
+        <ul class="skill-list">
+          <li>
+            <strong>JVM &amp; Java 并发</strong>
+            深入理解 JDK 集合、并发包底层原理，精通 volatile、Synchronized 底层实现；熟练使用 jstat/jmap/MAT 完成线上 JVM 调优，可自定义 GC 模板；深度研读 Spring、Spring Cloud、MyBatis、Nacos 核心源码。
+          </li>
+          <li>
+            <strong>数据库 &amp; 存储</strong>
+            精通 MySQL InnoDB 引擎 Buffer Pool、事务、锁、索引底层机制，基于 Explain 做 SQL 性能调优；掌握 Redis 各类数据结构、持久化、集群方案，落地缓存穿透 / 击穿 / 雪崩完整解决方案；熟练使用 ShardingSphere 分库分表、Canal binlog 数据同步；具备图数据库落地经验，实现类 Neo4j 代码图谱存储与关系查询。
+          </li>
+          <li>
+            <strong>微服务 &amp; 分布式</strong>
+            吃透 Spring Cloud Netflix 全套组件原理；熟练落地 Redis/Zookeeper 分布式锁；基于 Seata、RocketMQ 可靠消息实现分布式事务最终一致性；熟练使用 RocketMQ/RabbitMQ，解决消息积压、有序性、幂等性、可靠性问题。
+          </li>
+          <li>
+            <strong>云原生 &amp; 运维部署</strong>
+            熟练 Linux 运维命令，掌握 Docker 容器打包、K8s 集群部署调度；熟练使用阿里云 ARMS 应用监控、DAS 数据库监控，擅长线上高并发故障定位、性能优化。
+          </li>
+          <li>
+            <strong>数据迁移 &amp; 研发效能平台</strong>
+            具备大型系统单库转分库分表、新旧系统全量 / 增量数据迁移落地经验，实现断点续传、数据校验、故障重试一体化迁移流水线；自研多语言接口扫描组件（已申请专利），支撑集团百万级 API 统一治理。
+          </li>
+          <li>
+            <strong>AI 代码平台 &amp; 多语言解析</strong>
+            掌握 Tree-sitter 多语言 AST 静态解析技术，基于 Python 封装大模型调用链路，落地 AI 自动文档解析、代码生成、测试造数能力；熟练使用 Python、Java、React 技术栈，基于 DDD 领域驱动设计搭建后端服务，通过 Vibe Coding 完成前端全流程开发。
+          </li>
+        </ul>
+      </section>
+
+      <section class="section" id="experience">
+        <h2>工作经历</h2>
+        <div class="timeline-toolbar">
+          <button type="button" data-expand-all>全部展开</button>
+          <button type="button" data-collapse-all>全部折叠</button>
+        </div>
+        <div class="timeline">
+
+          <!-- 京东 -->
+          <article class="company">
+            <div class="company-card" data-company>
+              <button type="button" class="company-head" aria-expanded="true">
+                <span class="head-main">
+                  <span class="chevron" aria-hidden="true">
+                    <svg viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </span>
+                  <h3>京东集团股份有限公司</h3>
+                </span>
+                <span class="period">2025 年 7 月 — 至今 <span class="hint">点击折叠</span></span>
+              </button>
+              <div class="projects">
+                <div class="project" id="proj-ai-coding" data-project-item>
+                  <button type="button" class="project-head" aria-expanded="true">
+                    <span class="head-main">
+                      <span class="chevron" aria-hidden="true">
+                      <svg viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </span>
+                      <h4 class="project-title">AI 全链路研发效能平台</h4>
+                    </span>
+                    <span class="hint">点击折叠</span>
+                  </button>
+                  <div class="project-body">
+<div class="block">
+                    <div class="label">项目介绍</div>
+                    <p>一站式 AI 代码研发协作平台，支持 Git 仓库代码向图数据库初始化入库存储代码接口、元数据与代码关联关系，支持类 Neo4j 图谱关系查询；打通 PRD 文档解析标注、TRD 生成、AI 自动编码、代码提交、自动化测试与部署全流程，依托代码图谱自动生成项目 Wiki，实现需求到上线全链路 AI 赋能。</p>
+                  </div>
+                  <div class="block">
+                    <div class="label">项目职责</div>
+                    <p>负责平台整体功能研发，完成代码图谱构建、文档解析、AI 代码生成、前后端全链路流程打通等核心模块开发。</p>
+                  </div>
+                  <div class="block">
+                    <div class="label">工作业绩</div>
+                    <p>实现 Git 代码库图谱化存储与可视化关系查询，完成 PRD/TRD 文档自动化处理链路，落地 AI 自动生成代码并打通提测、部署流水线，配套生成项目代码 Wiki。</p>
+                  </div>
+                  <div class="block">
+                    <div class="label">核心流程</div>
+                    <div class="flow">
+                      <span>Git 代码初始化入库构建代码图谱</span><i>→</i>
+                      <span>PRD 文档解析标注生成多端设计文档</span><i>→</i>
+                      <span>TRD 标准化处理</span><i>→</i>
+                      <span>AI 生成业务代码</span><i>→</i>
+                      <span>代码提交仓库</span><i>→</i>
+                      <span>自动化测试</span><i>→</i>
+                      <span>部署上线</span>
+                    </div>
+                  </div>
+                  <div class="block">
+                    <div class="label">技术架构</div>
+                    <div class="tags">
+                      <span>Spring Boot</span><span>Python</span><span>React</span><span>MySQL</span><span>Redis</span><span>MQ</span><span>OSS</span><span>图数据库</span><span>Docker</span><span>K8s</span>
+                    </div>
+                  </div>
+                  <div class="block">
+                    <div class="label">技术亮点</div>
+                    <ul>
+                      <li>自研代码图谱构建能力，将 Git 仓库代码、接口、元数据存入图数据库，支持代码关联关系可视化查询，自动生成项目 Wiki 文档</li>
+                      <li>基于 Python 封装大模型调用能力，落地 AI 编码能力，前端完全依托自研 Vibe Coding 完成开发，降低前端开发门槛</li>
+                      <li>后端采用 DDD 领域驱动设计分层开发，规范业务代码边界，搭配缓存、消息队列、对象存储完成全流程数据存储与异步解耦</li>
+                    </ul>
+                  </div>
+                  <div class="block">
+                    <div class="label">技术挑战</div>
+                    <div class="challenge-item">
+                      <div class="name">代码仓库图谱构建与海量代码关系存储</div>
+                      <p><strong>描述：</strong>选用图数据库存储代码实体与关联关系，标准化入库流程完成代码初始化图谱构建，配套工具自动生成项目 Wiki 沉淀代码信息</p>
+                      <p><strong>措施：</strong>决定自研组件。基于源码、编译后的资源对其通过语法树、类加载机制实现项目中的接口，并进行各种定制化</p>
+                    </div>
+                    <div class="challenge-item">
+                      <div class="name">PRD 文档解析、AI 自动编码全流程链路打通</div>
+                      <p><strong>描述：</strong>原始 PRD 文档格式不统一，需自动拆分输出产品/研发/测试文档，再基于 TRD 驱动 AI 生成可提交业务代码，串联测试部署流程链路复杂</p>
+                      <p><strong>措施：</strong>基于 Python 封装大模型接口实现文档智能解析、标准化 TRD 产出，依托自研 Vibe Coding 工具实现前后端 AI 辅助开发，串联流水线完成代码提交、测试、部署一体化</p>
+                    </div>
+                  </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- 大搜车 -->
+          <article class="company">
+            <div class="company-card is-collapsed" data-company>
+              <button type="button" class="company-head" aria-expanded="false">
+                <span class="head-main">
+                  <span class="chevron" aria-hidden="true">
+                    <svg viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </span>
+                  <h3>大搜车技术服务有限公司</h3>
+                </span>
+                <span class="period">2021 年 8 月 — 2025 年 6 月 <span class="hint">点击展开</span></span>
+              </button>
+              <div class="projects">
+                <div class="project is-collapsed" id="proj-super-4s" data-project-item>
+                  <button type="button" class="project-head" aria-expanded="false">
+                    <span class="head-main">
+                      <span class="chevron" aria-hidden="true">
+                      <svg viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </span>
+                      <h4 class="project-title">汽车经销商 SaaS 数字化中台</h4>
+                    </span>
+                    <span class="hint">点击展开</span>
+                  </button>
+                  <div class="project-body">
+<div class="block">
+                    <div class="label">项目介绍</div>
+                    <p>响应互联网+汽车产业，加快互联网与汽车产业治理和服务的深度融合，大力建设汽车数字产业，实现汽车产业数字化转型，为汽车产业赋能增效，为车主提供更优质的服务。作为中国汽车流通领域的 SaaS 服务平台，已经数字化全国 60% 以上的汽车经销商。</p>
+                  </div>
+                  <div class="block">
+                    <div class="label">项目职责</div>
+                    <p>项目组研发，负责外呼系统模块、市场活动模块、数据迁移、销售 BDC 模块的功能设计与开发。</p>
+                  </div>
+                  <div class="block">
+                    <div class="label">工作业绩</div>
+                    <p>根据产品需求完成功能设计，协调组内各模块完成方案落地，跟踪与第三方服务的联调测试。</p>
+                  </div>
+                  <div class="block">
+                    <div class="label">核心流程</div>
+                    <div class="flow">
+                      <span>线索流入</span><i>→</i>
+                      <span>电话跟进</span><i>→</i>
+                      <span>活动邀约</span><i>→</i>
+                      <span>完成销售</span><i>→</i>
+                      <span>售后跟踪</span>
+                    </div>
+                  </div>
+                  <div class="block">
+                    <div class="label">技术架构</div>
+                    <div class="tags">
+                      <span>Spring Cloud Alibaba</span><span>Spring Boot</span><span>ShardingSphere</span><span>RocketMQ</span><span>MySQL</span><span>Redis</span><span>OSS</span><span>Elasticsearch</span><span>Docker</span><span>K8s</span>
+                    </div>
+                  </div>
+                  <div class="block">
+                    <div class="label">技术亮点</div>
+                    <ul>
+                      <li>系统采用最新的微服务架构进行搭建开发环境，全部采用阿里云服务，全部通过容器化进行部署</li>
+                      <li>通过 MQ 优化数据导出的功能，实现异步数据导出，提升核心业务流程运行效率</li>
+                      <li>采用阿里 Canal 订阅 MySQL binlog + MQ 方案实现 MySQL + Redis + Elasticsearch 数据一致性问题</li>
+                      <li>使用责任链模式，将业务部门设计的各种复杂的分配规则（下次跟进、预警、回流）灵活嵌入到跟进的流程中，提升了业务代码的健壮性和可读性</li>
+                    </ul>
+                  </div>
+                  <div class="block">
+                    <div class="label">技术挑战</div>
+                    <div class="challenge-item">
+                      <div class="name">单库到多库数据迁移</div>
+                      <p><strong>描述：</strong>系统 V1.0 数据迁移到 V2.0 系统，1.0 采用的是单库，2.0 采用分库的数据库架构。数据量大、需要考虑回滚方案、降级策略</p>
+                      <p><strong>措施：</strong>采用 DBA 迁移数据 + 代码迁移数据方案迁移数据。前三个月的冷数据采用代码的方式迁移，少量多次；三个月内的数据采取停服，DBA 做迁移数据。兼顾了时间成本和对线上系统的影响</p>
+                    </div>
+                  </div>
+                  </div>
+                </div>
+
+                <div class="project is-collapsed" id="proj-data-migration" data-project-item>
+                  <button type="button" class="project-head" aria-expanded="false">
+                    <span class="head-main">
+                      <span class="chevron" aria-hidden="true">
+                      <svg viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </span>
+                      <h4 class="project-title">分布式数据迁移与一致性保障平台</h4>
+                    </span>
+                    <span class="hint">点击展开</span>
+                  </button>
+                  <div class="project-body">
+<div class="block">
+                    <div class="label">项目介绍</div>
+                    <p>老系统做微服务改造的同时对数据库也做了拆分，对数据量较大的业务表进行了分库分表的设计。根据业务要求需要将老系统的数据迁移到新库当中，刚开始主要是通过 DBA 进行数据迁移，后来发现有一些其他老的系统的数据也需要将数据同步到本微服务中，公司的其他团队也涉及到新老系统数据迁移的情况。所以考虑开发一套通用的迁移服务作为内部使用。</p>
+                  </div>
+                  <div class="block">
+                    <div class="label">项目职责</div>
+                    <p>项目组研发，需求调研，系统设计。核心功能设计与开发。系统上线后的数据迁移。</p>
+                  </div>
+                  <div class="block">
+                    <div class="label">工作业绩</div>
+                    <p>数据迁移系统的设计与落地。协助业务方完成系统 1.0 版本到 2.0 版本的数据迁移。</p>
+                  </div>
+                  <div class="block">
+                    <div class="label">核心流程</div>
+                    <div class="flow">
+                      <span>全量同步</span><i>→</i>
+                      <span>增量同步</span><i>→</i>
+                      <span>失败重试</span><i>→</i>
+                      <span>数据校验</span><i>→</i>
+                      <span>迁移进度统计</span><i>→</i>
+                      <span>数据库扩容迁移</span>
+                    </div>
+                  </div>
+                  <div class="block">
+                    <div class="label">技术架构</div>
+                    <div class="tags">
+                      <span>Spring Boot</span><span>Git</span><span>Canal</span><span>RocketMQ</span><span>Sharding-JDBC</span><span>MySQL</span><span>Redis</span><span>Docker</span><span>K8s</span>
+                    </div>
+                  </div>
+                  <div class="block">
+                    <div class="label">技术亮点</div>
+                    <ul>
+                      <li>全量同步采用同一批次分阶段进行数据同步，可手动实现同步中断和断点续传</li>
+                      <li>全量同步时采用数据过滤与数据模型转换实现批量数据迁移，提高数据写入效率</li>
+                      <li>增量同步采用内存队列的方式进行数据合并，降低数据库的写入频次，避免因频繁 IO 带来的性能问题</li>
+                    </ul>
+                  </div>
+                  <div class="block">
+                    <div class="label">技术挑战</div>
+                    <div class="challenge-item">
+                      <div class="name">单库到多库数据迁移</div>
+                      <p><strong>描述：</strong>增量同步数据采用 Canal 监听数据库的 binlog 日志然后将 binlog 通过消息发送到消息队列，再通过消费者消费消息写入新库。如果消息一旦丢失，旧库的增删改操作就不会在新库中进行重放，旧库和新库的数据就会导致不一致</p>
+                      <p><strong>措施：</strong>为了防止消息的丢失，采用手动拉取和手动提交消息的机制，主要是通过多个定时任务完成。有一个定时任务手动从消息队列中拉取消息，拉取一次就会在数据库的消息记录表中写入一条数据，然后有一个新的定时任务消费消息在新库中操作完成后修改消息记录表中的数据状态为已消费。另一个定时任务查询已消费的消息记录然后进行手动提交</p>
+                    </div>
+                  </div>
+                  </div>
+                </div>
+
+                <div class="project is-collapsed" id="proj-api-platform" data-project-item>
+                  <button type="button" class="project-head" aria-expanded="false">
+                    <span class="head-main">
+                      <span class="chevron" aria-hidden="true">
+                      <svg viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </span>
+                      <h4 class="project-title">API 治理与智能测试平台</h4>
+                    </span>
+                    <span class="hint">点击展开</span>
+                  </button>
+                  <div class="project-body">
+<div class="block">
+                    <div class="label">项目介绍</div>
+                    <p>自研 API 设计、开发、测试一体化协作平台。通过自研部署流水线实现集团统一化 API 接口管理。监控接口的访问流量。提供接口 Mock、测试及测试案例管理，接入 AI 实现接口案例自动化推荐、造数智能体。</p>
+                  </div>
+                  <div class="block">
+                    <div class="label">项目职责</div>
+                    <p>项目研发，负责自研接口扫描系统的技术调研、设计、开发。</p>
+                  </div>
+                  <div class="block">
+                    <div class="label">工作业绩</div>
+                    <p>实现集团 1000000+ 接口的扫描，为接口管理提供了最基础的数据。支持多语言接口扫描。</p>
+                  </div>
+                  <div class="block">
+                    <div class="label">核心流程</div>
+                    <div class="flow">
+                      <span>接口扫描</span><i>→</i>
+                      <span>异步入库</span><i>→</i>
+                      <span>生成测试案例</span><i>→</i>
+                      <span>AI 造数</span><i>→</i>
+                      <span>接口流量监控</span><i>→</i>
+                      <span>接口测试、分享、Mock</span>
+                    </div>
+                  </div>
+                  <div class="block">
+                    <div class="label">技术架构</div>
+                    <div class="tags">
+                      <span>Spring Boot</span><span>Redis</span><span>RocketMQ</span><span>MySQL</span><span>Docker</span><span>K8s</span><span>Elasticsearch</span>
+                    </div>
+                  </div>
+                  <div class="block">
+                    <div class="label">技术亮点</div>
+                    <ul>
+                      <li>自研接口扫描组件，可支持增量、全量两种方式，实现多语言接口扫描，已申请专利并获得集团奖励</li>
+                      <li>结合当下的 AI 大模型实现接口案例自动化生成、造数智能体，解决了测试案例覆盖不全、测试数据耗时等痛点</li>
+                    </ul>
+                  </div>
+                  <div class="block">
+                    <div class="label">技术挑战</div>
+                    <div class="challenge-item">
+                      <div class="name">平台基础数据搜集 — 接口</div>
+                      <p><strong>描述：</strong>集团系统采用的技术栈多元化、甚至有自研的 MVC 框架，且存在多语言的情况，因此搜集成了接口治理的首要问题</p>
+                      <p><strong>措施：</strong>决定自研组件。基于源码、编译后的资源对其通过语法树、类加载机制实现项目中的接口，并进行各种定制化</p>
+                    </div>
+                    <div class="challenge-item">
+                      <div class="name">接口测试案例执行架构</div>
+                      <p><strong>描述：</strong>管理集团百万+接口，导致测试案例数据量巨大。接口管理平台资源及架构存在挑战</p>
+                      <p><strong>措施：</strong>采取数据集中管理、任务分布式执行。即接口及案例等 Meta 数据由接口管理平台管理。具体的执行资源采用多源的方式，实现 API 接口管理平台 + 用户资源的方式</p>
+                    </div>
+                    <div class="challenge-item">
+                      <div class="name">接口案例覆盖率、测试数据真实性</div>
+                      <p><strong>描述：</strong>测试案例设计严重依赖测试人员的专业性，且很难对测试案例的完整性、合理性进行监控。测试数据与测试案例一样存在一些复杂场景的设计</p>
+                      <p><strong>措施：</strong>引入第三方组件 jacoco 实现测试案例的覆盖性监控。之后引入大模型实现测试案例推荐及测试数据生成</p>
+                    </div>
+                  </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- 软通动力 -->
+          <article class="company">
+            <div class="company-card is-collapsed" data-company>
+              <button type="button" class="company-head" aria-expanded="false">
+                <span class="head-main">
+                  <span class="chevron" aria-hidden="true">
+                    <svg viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </span>
+                  <h3>软通动力信息技术(集团)股份有限公司</h3>
+                </span>
+                <span class="period">2019 年 6 月 — 2021 年 8 月 <span class="hint">点击展开</span></span>
+              </button>
+              <div class="projects">
+                <div class="project is-collapsed" id="proj-auto-insurance" data-project-item>
+                  <button type="button" class="project-head" aria-expanded="false">
+                    <span class="head-main">
+                      <span class="chevron" aria-hidden="true">
+                      <svg viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </span>
+                      <h4 class="project-title">车险核心承保微服务系统</h4>
+                    </span>
+                    <span class="hint">点击展开</span>
+                  </button>
+                  <div class="project-body">
+<div class="block">
+                    <div class="label">项目介绍</div>
+                    <p>通过对接全国车险平台接口实现系统功能，完成车险从报价到出单，缴纳车船税，实现保单批改、退保，出险报案理赔。</p>
+                  </div>
+                  <div class="block">
+                    <div class="label">项目职责</div>
+                    <p>项目组开发负责人，根据实际业务提出服务拆分方案，参与新一代服务迁移方案讨论，协调开发、分配任务，完成核心模块项目设计、开发、部署及上线。</p>
+                  </div>
+                  <div class="block">
+                    <div class="label">工作业绩</div>
+                    <p>在有限人手的情况下保证老系统稳定正常运行，按时按量跟上平台版本迭代。按时完成新一代微服务车险核心系统按期完成交付上线使用。</p>
+                  </div>
+                  <div class="block">
+                    <div class="label">核心流程</div>
+                    <div class="flow">
+                      <span>保费计算</span><i>→</i>
+                      <span>核保</span><i>→</i>
+                      <span>承保</span><i>→</i>
+                      <span>生成保单</span><i>→</i>
+                      <span>电子保单</span><i>→</i>
+                      <span>发送短信</span><i>→</i>
+                      <span>工单系统</span><i>→</i>
+                      <span>运维系统</span>
+                    </div>
+                  </div>
+                  <div class="block">
+                    <div class="label">技术架构</div>
+                    <div class="tags">
+                      <span>Spring Cloud</span><span>Maven</span><span>Git</span><span>RocketMQ</span><span>MySQL</span><span>Redis</span><span>OSS</span><span>Nginx</span><span>Docker</span><span>K8s</span>
+                    </div>
+                  </div>
+                  <div class="block">
+                    <div class="label">技术亮点</div>
+                    <ul>
+                      <li>使用 Spring Cloud 作为微服务技术选型，采用 Zuul 网关做限流和路由转发，OpenFeign 进行服务调用，Hystrix 进行服务熔断、限流和降级，并对 Eureka 注册中心进行线上感知的参数调优</li>
+                      <li>使用 MQ 作为数据统一入口，实现系统的解耦和流量削峰</li>
+                      <li>基于 MQ 可靠消息方案 + 最大努力通知方案解决微服务间的分布式事务</li>
+                    </ul>
+                  </div>
+                  <div class="block">
+                    <div class="label">技术挑战</div>
+                    <div class="challenge-item">
+                      <div class="name">服务迁移兼顾新老数据同步</div>
+                      <p><strong>描述：</strong>老系统采用 Oracle 数据库，新系统进行服务拆分后，数据库在第二期也进行了拆分，新老系统上线同时运行，需要保证老数据和新数据在两个系统都可以进行无缝对接，正常读写</p>
+                      <p><strong>措施：</strong>采用数据双写，一段时间内通过定时任务进行数据同步，在数据完成全部同步前，新老系统都统一读取老数据库，在保证数据完全同步后，采取双写，读数据时读自己的数据，直至新系统完全替换老系统</p>
+                    </div>
+                  </div>
+                  </div>
+                </div>
+
+                <div class="project is-collapsed" id="proj-value-added" data-project-item>
+                  <button type="button" class="project-head" aria-expanded="false">
+                    <span class="head-main">
+                      <span class="chevron" aria-hidden="true">
+                      <svg viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </span>
+                      <h4 class="project-title">车险增值服务交易与履约平台</h4>
+                    </span>
+                    <span class="hint">点击展开</span>
+                  </button>
+                  <div class="project-body">
+<div class="block">
+                    <div class="label">项目介绍</div>
+                    <p>响应平台对于车险费改，购买车险时，保险公司根据新的费改规则可以提供更多元化的投保方案，提供增值服务，赠送洗车券等。系统就是对增值服务的消费管理。</p>
+                  </div>
+                  <div class="block">
+                    <div class="label">项目职责</div>
+                    <p>开发负责人，需求对接，项目模块搭建，功能设计，任务分发、人员分配，代码审核，部门协调。</p>
+                  </div>
+                  <div class="block">
+                    <div class="label">工作业绩</div>
+                    <p>模块深度抽象，复用程度高，易扩展，为后期作为渠道或 SaaS 服务方案预埋扩展点。</p>
+                  </div>
+                  <div class="block">
+                    <div class="label">核心流程</div>
+                    <div class="flow">
+                      <span>下单</span><i>→</i>
+                      <span>生成订单</span><i>→</i>
+                      <span>派单</span><i>→</i>
+                      <span>店铺接单</span><i>→</i>
+                      <span>到店消费</span><i>→</i>
+                      <span>完成服务</span><i>→</i>
+                      <span>服务评价</span><i>→</i>
+                      <span>订单完成</span>
+                    </div>
+                  </div>
+                  <div class="block">
+                    <div class="label">技术架构</div>
+                    <div class="tags">
+                      <span>Spring Cloud</span><span>Maven</span><span>Git</span><span>RocketMQ</span><span>MySQL</span><span>Redis</span><span>OSS</span><span>Nginx</span><span>Docker</span><span>K8s</span>
+                    </div>
+                  </div>
+                  <div class="block">
+                    <div class="label">技术亮点</div>
+                    <ul>
+                      <li>使用 MQ 作为数据统一入口，实现系统的解耦和流量削峰</li>
+                      <li>基于 MQ 可靠消息方案 + 最大努力通知方案解决微服务间的分布式事务</li>
+                    </ul>
+                  </div>
+                  <div class="block">
+                    <div class="label">技术挑战</div>
+                    <div class="challenge-item">
+                      <div class="name">分布式事务</div>
+                      <p><strong>描述：</strong>服务采用多服务多节点部署架构，订单和库存服务进行拆分，生成订单和扣减库存需要保证事务的原子性</p>
+                      <p><strong>措施：</strong>通过 RocketMQ 的可靠消息方案 + 最大努力通知方案完成事务的最终一致性</p>
+                    </div>
+                  </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- 中科软 -->
+          <article class="company">
+            <div class="company-card is-collapsed" data-company>
+              <button type="button" class="company-head" aria-expanded="false">
+                <span class="head-main">
+                  <span class="chevron" aria-hidden="true">
+                    <svg viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </span>
+                  <h3>中科软科技股份有限公司</h3>
+                </span>
+                <span class="period">2016 年 6 月 — 2019 年 6 月 <span class="hint">点击展开</span></span>
+              </button>
+              <div class="projects">
+                <div class="project is-collapsed" id="proj-national-policy" data-project-item>
+                  <button type="button" class="project-head" aria-expanded="false">
+                    <span class="head-main">
+                      <span class="chevron" aria-hidden="true">
+                      <svg viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </span>
+                      <h4 class="project-title">全国车险统一出单与监管对接平台</h4>
+                    </span>
+                    <span class="hint">点击展开</span>
+                  </button>
+                  <div class="project-body">
+<div class="block">
+                    <div class="label">项目介绍</div>
+                    <p>集中管理全国车辆保险市场，统一规范车辆交强险、商业保险出单规则，保障车险市场合法、合理、合规、稳定运行，对车险投保指标进行更精确的管理。</p>
+                  </div>
+                  <div class="block">
+                    <div class="label">项目职责</div>
+                    <p>项目核心模块开发人员，负责项目新需求的跟踪，功能模块设计、开发、测试、部署以及上线工作，并主导数据处理服务、统计服务的设计与开发。</p>
+                  </div>
+                  <div class="block">
+                    <div class="label">工作业绩</div>
+                    <p>在「四川九寨沟灾后」车险保单数据恢复工作中，独立制定多样化的数据恢复方案，实现数据恢复脚本，完成多部门业务指导培训。提升一线员工工作效率，提高了平台在保险公司的满意度。</p>
+                  </div>
+                  <div class="block">
+                    <div class="label">核心流程</div>
+                    <div class="flow">
+                      <span>投保查询</span><i>→</i>
+                      <span>投保预确认</span><i>→</i>
+                      <span>投保确认</span><i>→</i>
+                      <span>生成保单</span><i>→</i>
+                      <span>电子保单</span><i>→</i>
+                      <span>工单系统</span><i>→</i>
+                      <span>运维系统</span>
+                    </div>
+                  </div>
+                  <div class="block">
+                    <div class="label">技术架构</div>
+                    <div class="tags">
+                      <span>Spring Cloud</span><span>Maven</span><span>Git</span><span>RocketMQ</span><span>Oracle</span><span>Redis</span><span>OSS</span><span>Nginx</span><span>Docker</span><span>K8s</span>
+                    </div>
+                  </div>
+                  <div class="block">
+                    <div class="label">技术亮点</div>
+                    <ul>
+                      <li>使用 Spring Cloud 作为微服务技术选型，采用 Zuul 网关做过滤访问和请求转发，Ribbon 组件负载均衡调用，Hystrix 进行服务熔断、限流和降级，并对 Eureka 注册中心进行线上感知的参数调优</li>
+                    </ul>
+                  </div>
+                  <div class="block">
+                    <div class="label">技术挑战</div>
+                    <div class="challenge-item">
+                      <div class="name">关联方较多协调问题</div>
+                      <p><strong>描述：</strong>系统设计的保险公司较多，获得银保监会批准接入车险平台出单的保险公司共 70+。涉及全国 36 个地区出单，不同的保险公司在不同的地区分布不一致，每个地区的相应车险出单规则信息不对称，公司之间的开发进度不一致，联调阶段相关开发回应慢</p>
+                      <p><strong>措施：</strong>针对不同的地区建立不同的群，每个群由银保监会一个或多个相关人员对接当地保险行业协会工作人员，协会工作人员对接每个保险公司在对应地区的负责人，所有负责人对接相关业务情况、工作部署、开发进度等工作沟通。针对不同的地区和不同的保险公司因为开发进度未能跟上版本进度的，单独开辟指定版本的测试环境以及生产环境</p>
+                    </div>
+                  </div>
+                  </div>
+                </div>
+
+                <div class="project is-collapsed" id="proj-warranty" data-project-item>
+                  <button type="button" class="project-head" aria-expanded="false">
+                    <span class="head-main">
+                      <span class="chevron" aria-hidden="true">
+                      <svg viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </span>
+                      <h4 class="project-title">车辆零部件延保定价与出单系统</h4>
+                    </span>
+                    <span class="hint">点击展开</span>
+                  </button>
+                  <div class="project-body">
+<div class="block">
+                    <div class="label">项目介绍</div>
+                    <p>通过全国车辆出现数据，进行精确分析，对车辆重要零部件提供投保方案，为全国车辆提供更精细化的保险，补足车辆保险的投保方案。</p>
+                  </div>
+                  <div class="block">
+                    <div class="label">项目职责</div>
+                    <p>项目开发负责人，负责项目设计、任务分发、人员分配、部门间的沟通协调，独立负责出单报价系统和注册中心的设计、开发、联调测试、部署以及上线工作。</p>
+                  </div>
+                  <div class="block">
+                    <div class="label">工作业绩</div>
+                    <p>在统筹规划、项目协调以及系统设计建模等方面获得了较大的成长。</p>
+                  </div>
+                  <div class="block">
+                    <div class="label">核心流程</div>
+                    <div class="flow">
+                      <span>车辆理赔信息查询</span><i>→</i>
+                      <span>零部件理赔明细</span><i>→</i>
+                      <span>零部件投保报价</span><i>→</i>
+                      <span>投保预确认</span><i>→</i>
+                      <span>投保确认</span><i>→</i>
+                      <span>生成保单</span><i>→</i>
+                      <span>电子保单</span>
+                    </div>
+                  </div>
+                  <div class="block">
+                    <div class="label">技术架构</div>
+                    <div class="tags">
+                      <span>Spring Cloud</span><span>Maven</span><span>Git</span><span>RocketMQ</span><span>MySQL</span><span>Redis</span><span>OSS</span><span>Nginx</span><span>Docker</span><span>K8s</span>
+                    </div>
+                  </div>
+                  <div class="block">
+                    <div class="label">技术亮点</div>
+                    <ul>
+                      <li>使用 Spring Cloud 作为微服务技术选型，采用 Zuul 网关做过滤访问和请求转发，Ribbon 组件负载均衡调用，Hystrix 进行服务熔断、限流和降级，并对 Eureka 注册中心进行线上感知的参数调优</li>
+                      <li>通过 Redis 集群部署缓存车辆信息、理赔信息，提升系统的并发量</li>
+                    </ul>
+                  </div>
+                  <div class="block">
+                    <div class="label">技术挑战</div>
+                    <div class="challenge-item">
+                      <div class="name">大数据量处理、存储</div>
+                      <p><strong>描述：</strong>全国理赔数据量较大，新的投保模式在刚投放到市场，规则调整频繁，改动大，特别是理赔数据的统计维度统一更改</p>
+                      <p><strong>措施：</strong>首先选用 Redis 缓存不同维度的理赔数据，单独开发一个模块，进行按维度统计计算不同维度的数据，快速响应对理赔数据规则的调整</p>
+                    </div>
+                  </div>
+                  </div>
+                </div>
+
+                <div class="project is-collapsed" id="proj-used-car" data-project-item>
+                  <button type="button" class="project-head" aria-expanded="false">
+                    <span class="head-main">
+                      <span class="chevron" aria-hidden="true">
+                      <svg viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </span>
+                      <h4 class="project-title">二手车承保理赔信息查询服务</h4>
+                    </span>
+                    <span class="hint">点击展开</span>
+                  </button>
+                  <div class="project-body">
+<div class="block">
+                    <div class="label">项目介绍</div>
+                    <p>响应上海地区二手车交易市场关于二手车必须通过二手车商进行买卖，为二手车交易提供更精准更优质的架构指导，由平台根据统一提供车辆承保及理赔信息查询。</p>
+                  </div>
+                  <div class="block">
+                    <div class="label">项目职责</div>
+                    <p>RD，参与整个系统的建设及上线。</p>
+                  </div>
+                  <div class="block">
+                    <div class="label">工作业绩</div>
+                    <p>深入参与了数据清洗、脱敏、维度设计、业务制定和功能设计开发。</p>
+                  </div>
+                  <div class="block">
+                    <div class="label">核心流程</div>
+                    <div class="flow">
+                      <span>承保、理赔信息查询</span><i>→</i>
+                      <span>上海信息中心</span><i>→</i>
+                      <span>二手车系统</span><i>→</i>
+                      <span>数据服务</span><i>→</i>
+                      <span>数据处理缓存</span><i>→</i>
+                      <span>响应数据</span><i>→</i>
+                      <span>推送消息</span><i>→</i>
+                      <span>对账子系统</span><i>→</i>
+                      <span>生成对账报表</span>
+                    </div>
+                  </div>
+                  <div class="block">
+                    <div class="label">技术架构</div>
+                    <div class="tags">
+                      <span>Spring</span><span>SpringMVC</span><span>MyBatis</span><span>Maven</span><span>SVN</span><span>RabbitMQ</span><span>MySQL</span><span>Redis</span>
+                    </div>
+                  </div>
+                  <div class="block">
+                    <div class="label">技术亮点</div>
+                    <ul>
+                      <li>使用 RabbitMQ 实现服务之间的消息推送的异步化</li>
+                    </ul>
+                  </div>
+                  <div class="block">
+                    <div class="label">技术挑战</div>
+                    <div class="challenge-item">
+                      <div class="name">高并发、防刷</div>
+                      <p><strong>描述：</strong>系统主要提供查询功能，涉及的都是全国所有车主的核心数据，需要每天限制不同的车商的查询次数</p>
+                      <p><strong>措施：</strong>将每个车商的查询次数限制配置在 MySQL 中，每天定时任务将配置缓存在 Redis 中，通过 Redis 提供高并发以及次数限制</p>
+                    </div>
+                  </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <section class="section" id="education">
+        <h2>教育经历</h2>
+        <ul class="edu-list">
+          <li>
+            <div>
+              <div class="school">北京航空航天大学</div>
+              <div class="degree">本科</div>
+            </div>
+            <div class="period">2018.3 — 2021.7</div>
+          </li>
+          <li>
+            <div>
+              <div class="school">四川职业技术学院</div>
+              <div class="degree">大专</div>
+            </div>
+            <div class="period">2009.9 — 2012.6</div>
+          </li>
+        </ul>
+      </section>
+
+      <p class="footer-note">双击打开本文件即可在浏览器中查看</p>
+    </main>
+  </div>
+
+  <script>
+    (function () {
+      const sectionLinks = Array.from(document.querySelectorAll(".nav a.nav-section"));
+      const projectLinks = Array.from(document.querySelectorAll(".nav a[data-project]"));
+      const navGroup = document.querySelector(".nav-group");
+      const sections = sectionLinks
+        .map((link) => document.querySelector(link.getAttribute("href")))
+        .filter(Boolean);
+      const projects = projectLinks
+        .map((link) => document.querySelector(link.getAttribute("href")))
+        .filter(Boolean);
+
+      function setExpanded(el, expanded, headSelector) {
+        el.classList.toggle("is-collapsed", !expanded);
+        const head = el.querySelector(headSelector);
+        const hint = head && head.querySelector(".hint");
+        if (head) head.setAttribute("aria-expanded", String(expanded));
+        if (hint) hint.textContent = expanded ? "点击折叠" : "点击展开";
+      }
+
+      function setCompanyExpanded(card, expanded) {
+        setExpanded(card, expanded, ".company-head");
+      }
+
+      function setProjectExpanded(project, expanded) {
+        setExpanded(project, expanded, ".project-head");
+      }
+
+      function clearNavActive() {
+        sectionLinks.forEach((link) => link.classList.remove("active"));
+        projectLinks.forEach((link) => link.classList.remove("active"));
+        if (navGroup) navGroup.classList.remove("is-active");
+      }
+
+      function setSectionActive(id) {
+        clearNavActive();
+        sectionLinks.forEach((link) => {
+          link.classList.toggle("active", link.getAttribute("href") === "#" + id);
+        });
+      }
+
+      function setProjectActive(id) {
+        clearNavActive();
+        if (navGroup) navGroup.classList.add("is-active");
+        projectLinks.forEach((link) => {
+          link.classList.toggle("active", link.getAttribute("href") === "#" + id);
+        });
+      }
+
+      function goToProject(id) {
+        const project = document.getElementById(id);
+        if (!project) return;
+        const card = project.closest("[data-company]");
+        if (card) setCompanyExpanded(card, true);
+        setProjectExpanded(project, true);
+        setProjectActive(id);
+        requestAnimationFrame(() => {
+          project.scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+      }
+
+      const sectionObserver = new IntersectionObserver(
+        (entries) => {
+          const visible = entries
+            .filter((e) => e.isIntersecting)
+            .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+          if (!visible) return;
+          const anyProjectActive = projectLinks.some((link) => link.classList.contains("active"));
+          if (anyProjectActive && visible.target.id === "experience") return;
+          setSectionActive(visible.target.id);
+        },
+        { rootMargin: "-20% 0px -55% 0px", threshold: [0.1, 0.35, 0.6] }
+      );
+
+      sections.forEach((section) => sectionObserver.observe(section));
+
+      const projectObserver = new IntersectionObserver(
+        (entries) => {
+          const visible = entries
+            .filter((e) => e.isIntersecting)
+            .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+          if (visible) setProjectActive(visible.target.id);
+        },
+        { rootMargin: "-25% 0px -55% 0px", threshold: [0.2, 0.45] }
+      );
+
+      projects.forEach((project) => projectObserver.observe(project));
+
+      sectionLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          setSectionActive(link.getAttribute("href").slice(1));
+        });
+      });
+
+      projectLinks.forEach((link) => {
+        link.addEventListener("click", (event) => {
+          event.preventDefault();
+          goToProject(link.getAttribute("href").slice(1));
+        });
+      });
+
+      document.querySelectorAll("[data-company]").forEach((card) => {
+        const head = card.querySelector(".company-head");
+        if (!head) return;
+        head.addEventListener("click", () => {
+          setCompanyExpanded(card, card.classList.contains("is-collapsed"));
+        });
+      });
+
+      document.querySelectorAll("[data-project-item]").forEach((project) => {
+        const head = project.querySelector(".project-head");
+        if (!head) return;
+        head.addEventListener("click", () => {
+          setProjectExpanded(project, project.classList.contains("is-collapsed"));
+        });
+      });
+
+      const expandAll = document.querySelector("[data-expand-all]");
+      const collapseAll = document.querySelector("[data-collapse-all]");
+      if (expandAll) {
+        expandAll.addEventListener("click", () => {
+          document.querySelectorAll("[data-company]").forEach((card) => setCompanyExpanded(card, true));
+          document.querySelectorAll("[data-project-item]").forEach((project) => setProjectExpanded(project, true));
+        });
+      }
+      if (collapseAll) {
+        collapseAll.addEventListener("click", () => {
+          document.querySelectorAll("[data-company]").forEach((card) => setCompanyExpanded(card, false));
+          document.querySelectorAll("[data-project-item]").forEach((project) => setProjectExpanded(project, false));
+        });
+      }
+
+      if (location.hash.startsWith("#proj-")) {
+        goToProject(location.hash.slice(1));
+      }
+    })();
+  </script>
+</body>
+</html>
