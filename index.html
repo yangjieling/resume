@@ -9,18 +9,18 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --ink: #14212b;
-      --ink-soft: #3a4a56;
-      --muted: #6b7a86;
-      --line: #d7e0e7;
-      --paper: #f3f6f8;
+      --ink: #141618;
+      --ink-soft: #3a3f46;
+      --muted: #6b7178;
+      --line: #dddfe3;
+      --paper: #f5f5f4;
       --panel: #ffffff;
-      --accent: #0f766e;
-      --accent-soft: #d9f0ed;
-      --accent-deep: #0b5c56;
-      --rail: #c5d4dc;
-      --shadow: 0 18px 50px rgba(20, 33, 43, 0.08);
-      --radius: 18px;
+      --accent: #3a4a5c;
+      --accent-soft: #eef0f3;
+      --accent-deep: #2c3848;
+      --rail: #c8ccd2;
+      --shadow: none;
+      --radius: 10px;
       --nav-w: 240px;
       --font-display: "Syne", "Noto Sans SC", sans-serif;
       --font-body: "Noto Sans SC", "PingFang SC", "Hiragino Sans GB", sans-serif;
@@ -30,13 +30,11 @@
     html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      color: var(--ink);
+      color: var(--ink-soft);
       font-family: var(--font-body);
-      background:
-        radial-gradient(1200px 600px at 10% -10%, #dff3f0 0%, transparent 55%),
-        radial-gradient(900px 500px at 100% 0%, #e8eef3 0%, transparent 45%),
-        linear-gradient(180deg, #eef3f6 0%, var(--paper) 40%, #e9eef2 100%);
+      background: var(--paper);
       line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
     }
 
     a { color: inherit; text-decoration: none; }
@@ -62,18 +60,15 @@
     .nav,
     .section,
     .hero {
-      background: color-mix(in srgb, var(--panel) 92%, transparent);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(215, 224, 231, 0.9);
-      box-shadow: var(--shadow);
+      background: var(--panel);
+      border: 1px solid var(--line);
+      box-shadow: none;
       border-radius: var(--radius);
     }
 
     .brand-card {
       padding: 20px 18px;
-      background:
-        linear-gradient(160deg, rgba(15, 118, 110, 0.12), transparent 55%),
-        var(--panel);
+      background: var(--panel);
     }
 
     .brand-card .name {
@@ -83,11 +78,12 @@
       letter-spacing: 0.02em;
       line-height: 1.2;
       margin: 0 0 8px;
+      color: var(--ink);
     }
 
     .brand-card .role {
       margin: 0;
-      color: var(--accent-deep);
+      color: var(--accent);
       font-weight: 600;
       font-size: 0.92rem;
     }
@@ -124,18 +120,17 @@
     .nav a {
       display: block;
       padding: 11px 14px;
-      border-radius: 12px;
+      border-radius: 8px;
       color: var(--ink-soft);
       font-size: 0.94rem;
       font-weight: 500;
       border: 1px solid transparent;
-      transition: background .2s ease, color .2s ease, border-color .2s ease, transform .2s ease;
+      transition: background .15s ease, color .15s ease, border-color .15s ease;
     }
 
     .nav a:hover {
       background: var(--accent-soft);
-      color: var(--accent-deep);
-      transform: translateX(2px);
+      color: var(--ink);
     }
 
     .nav a.active {
@@ -153,7 +148,7 @@
       list-style: none;
       cursor: pointer;
       padding: 11px 14px;
-      border-radius: 12px;
+      border-radius: 8px;
       color: var(--ink-soft);
       font-size: 0.94rem;
       font-weight: 600;
@@ -163,7 +158,7 @@
       justify-content: space-between;
       gap: 8px;
       user-select: none;
-      transition: background .2s ease, color .2s ease;
+      transition: background .15s ease, color .15s ease;
     }
 
     .nav-group > summary::-webkit-details-marker { display: none; }
@@ -189,7 +184,7 @@
     .nav-group > summary:hover,
     .nav-group.is-active > summary {
       background: var(--accent-soft);
-      color: var(--accent-deep);
+      color: var(--ink);
     }
 
     .nav-sub {
@@ -218,8 +213,7 @@
       font-size: 0.72rem;
       font-weight: 700;
       letter-spacing: 0.04em;
-      color: var(--accent-deep);
-      opacity: 0.85;
+      color: var(--muted);
     }
 
     .main { display: grid; gap: 22px; min-width: 0; }
@@ -228,23 +222,9 @@
       padding: 28px 30px;
       display: grid;
       gap: 14px;
-      background:
-        linear-gradient(135deg, rgba(15, 118, 110, 0.14), transparent 42%),
-        linear-gradient(180deg, #fff, #f7fafb);
+      background: var(--panel);
       position: relative;
       overflow: hidden;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      right: -40px;
-      top: -50px;
-      width: 220px;
-      height: 220px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(15, 118, 110, 0.18), transparent 70%);
-      pointer-events: none;
     }
 
     .hero h1 {
@@ -253,6 +233,7 @@
       font-size: clamp(2rem, 4vw, 2.7rem);
       letter-spacing: 0.03em;
       line-height: 1.15;
+      color: var(--ink);
     }
 
     .hero .subtitle {
@@ -272,12 +253,13 @@
     .chip {
       display: inline-flex;
       align-items: center;
-      padding: 6px 12px;
-      border-radius: 999px;
-      background: var(--accent-soft);
-      color: var(--accent-deep);
+      padding: 5px 11px;
+      border-radius: 4px;
+      background: transparent;
+      border: 1px solid var(--line);
+      color: var(--ink-soft);
       font-size: 0.82rem;
-      font-weight: 600;
+      font-weight: 500;
     }
 
     .section {
@@ -293,15 +275,15 @@
       display: flex;
       align-items: center;
       gap: 12px;
+      color: var(--ink);
     }
 
     .section h2::before {
       content: "";
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
+      width: 8px;
+      height: 8px;
+      border-radius: 1px;
       background: var(--accent);
-      box-shadow: 0 0 0 5px var(--accent-soft);
     }
 
     .summary-list,
@@ -317,9 +299,9 @@
     .skill-list li {
       position: relative;
       padding: 14px 16px 14px 40px;
-      background: linear-gradient(90deg, #f4faf9, #fff 40%);
+      background: #fafafa;
       border: 1px solid var(--line);
-      border-radius: 14px;
+      border-radius: 8px;
     }
 
     .summary-list li::before,
@@ -327,17 +309,17 @@
       content: "";
       position: absolute;
       left: 16px;
-      top: 1.35em;
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
+      top: 1.4em;
+      width: 6px;
+      height: 6px;
+      border-radius: 1px;
       background: var(--accent);
     }
 
     .skill-list li strong {
       display: block;
       margin-bottom: 4px;
-      color: var(--accent-deep);
+      color: var(--ink);
       font-weight: 700;
     }
 
@@ -354,8 +336,8 @@
       left: 7px;
       top: 8px;
       bottom: 8px;
-      width: 2px;
-      background: linear-gradient(180deg, var(--accent), var(--rail));
+      width: 1px;
+      background: var(--rail);
     }
 
     .company {
@@ -366,19 +348,18 @@
       content: "";
       position: absolute;
       left: -28px;
-      top: 18px;
-      width: 16px;
-      height: 16px;
+      top: 20px;
+      width: 11px;
+      height: 11px;
       border-radius: 50%;
       background: #fff;
-      border: 3px solid var(--accent);
-      box-shadow: 0 0 0 4px var(--accent-soft);
+      border: 2px solid var(--accent);
       z-index: 1;
     }
 
     .company-card {
       border: 1px solid var(--line);
-      border-radius: 16px;
+      border-radius: 8px;
       overflow: hidden;
       background: #fff;
     }
@@ -386,9 +367,7 @@
     .company-head {
       width: 100%;
       padding: 18px 20px;
-      background:
-        linear-gradient(90deg, rgba(15, 118, 110, 0.1), transparent 70%),
-        #f8fbfb;
+      background: #fafafa;
       border: 0;
       border-bottom: 1px solid var(--line);
       display: flex;
@@ -400,13 +379,11 @@
       font: inherit;
       color: inherit;
       text-align: left;
-      transition: background .2s ease;
+      transition: background .15s ease;
     }
 
     .company-head:hover {
-      background:
-        linear-gradient(90deg, rgba(15, 118, 110, 0.16), transparent 70%),
-        #f1f8f7;
+      background: var(--accent-soft);
     }
 
     .company-head:focus-visible {
@@ -425,14 +402,14 @@
     .company-head .chevron {
       width: 28px;
       height: 28px;
-      border-radius: 8px;
+      border-radius: 6px;
       display: inline-grid;
       place-items: center;
       background: #fff;
       border: 1px solid var(--line);
-      color: var(--accent-deep);
+      color: var(--accent);
       flex: 0 0 auto;
-      transition: transform .25s ease, background .2s ease, border-color .2s ease;
+      transition: transform .25s ease, background .15s ease, border-color .15s ease;
     }
 
     .company-head .chevron svg {
@@ -455,10 +432,11 @@
       margin: 0;
       font-size: 1.12rem;
       font-weight: 700;
+      color: var(--ink);
     }
 
     .company-head .period {
-      color: var(--accent-deep);
+      color: var(--muted);
       font-weight: 600;
       font-size: 0.92rem;
       font-variant-numeric: tabular-nums;
@@ -490,19 +468,19 @@
       border: 1px solid var(--line);
       background: #fff;
       color: var(--ink-soft);
-      border-radius: 999px;
+      border-radius: 4px;
       padding: 6px 14px;
       font: inherit;
       font-size: 0.82rem;
       font-weight: 600;
       cursor: pointer;
-      transition: background .2s ease, color .2s ease, border-color .2s ease;
+      transition: background .15s ease, color .15s ease, border-color .15s ease;
     }
 
     .timeline-toolbar button:hover {
       background: var(--accent-soft);
-      color: var(--accent-deep);
-      border-color: transparent;
+      color: var(--ink);
+      border-color: var(--line);
     }
 
     .project {
@@ -526,11 +504,11 @@
       font: inherit;
       color: inherit;
       text-align: left;
-      transition: background .2s ease;
+      transition: background .15s ease;
     }
 
     .project-head:hover {
-      background: #f4faf9;
+      background: #fafafa;
     }
 
     .project-head:focus-visible {
@@ -548,13 +526,13 @@
     .project-head .chevron {
       width: 24px;
       height: 24px;
-      border-radius: 7px;
+      border-radius: 5px;
       display: inline-grid;
       place-items: center;
       background: var(--accent-soft);
-      color: var(--accent-deep);
+      color: var(--accent);
       flex: 0 0 auto;
-      transition: transform .25s ease, background .2s ease;
+      transition: transform .25s ease, background .15s ease;
     }
 
     .project-head .chevron svg {
@@ -565,7 +543,7 @@
 
     .project.is-collapsed .project-head .chevron {
       transform: rotate(-90deg);
-      background: #eef3f6;
+      background: #f0f1f3;
     }
 
     .project-title {
@@ -580,9 +558,9 @@
 
     .project-title::before {
       content: "";
-      width: 4px;
+      width: 3px;
       height: 1.1em;
-      border-radius: 4px;
+      border-radius: 1px;
       background: var(--accent);
       flex: 0 0 auto;
     }
@@ -603,14 +581,14 @@
     }
 
     .project-body a.ext-link {
-      color: var(--accent-deep);
+      color: var(--accent);
       font-weight: 600;
       text-decoration: underline;
       text-underline-offset: 3px;
     }
 
     .project-body a.ext-link:hover {
-      color: var(--accent);
+      color: var(--ink);
     }
 
     .project-body {
@@ -624,9 +602,9 @@
     .block {
       margin: 0 0 12px;
       padding: 12px 14px;
-      border-radius: 12px;
-      background: #f7fafb;
-      border: 1px solid #e6eef2;
+      border-radius: 6px;
+      background: #fafafa;
+      border: 1px solid var(--line);
     }
 
     .block:last-child { margin-bottom: 0; }
@@ -637,7 +615,7 @@
       font-size: 0.78rem;
       font-weight: 700;
       letter-spacing: 0.06em;
-      color: var(--accent-deep);
+      color: var(--accent);
       text-transform: uppercase;
     }
 
@@ -657,7 +635,7 @@
     .challenge-item {
       margin-top: 10px;
       padding-top: 10px;
-      border-top: 1px dashed #d5e1e7;
+      border-top: 1px dashed var(--line);
     }
 
     .challenge-item:first-of-type {
@@ -687,7 +665,7 @@
       display: inline-flex;
       align-items: center;
       padding: 4px 10px;
-      border-radius: 999px;
+      border-radius: 4px;
       background: #fff;
       border: 1px solid var(--line);
       font-size: 0.82rem;
@@ -696,7 +674,7 @@
 
     .flow i {
       font-style: normal;
-      color: var(--accent);
+      color: var(--muted);
       font-weight: 700;
       margin: 0 2px;
     }
@@ -709,11 +687,12 @@
 
     .tags span {
       padding: 4px 10px;
-      border-radius: 8px;
-      background: var(--accent-soft);
-      color: var(--accent-deep);
+      border-radius: 4px;
+      background: transparent;
+      border: 1px solid var(--line);
+      color: var(--ink-soft);
       font-size: 0.8rem;
-      font-weight: 600;
+      font-weight: 500;
     }
 
     .edu-list {
@@ -731,12 +710,13 @@
       gap: 8px 20px;
       padding: 16px 18px;
       border: 1px solid var(--line);
-      border-radius: 14px;
-      background: linear-gradient(90deg, #f4faf9, #fff 50%);
+      border-radius: 8px;
+      background: #fafafa;
     }
 
     .edu-list .school {
       font-weight: 700;
+      color: var(--ink);
     }
 
     .edu-list .degree {
@@ -746,7 +726,7 @@
     }
 
     .edu-list .period {
-      color: var(--accent-deep);
+      color: var(--muted);
       font-weight: 600;
       font-variant-numeric: tabular-nums;
     }
@@ -776,7 +756,7 @@
       .brand-card .name { font-size: 1.35rem; }
       .section, .hero { padding: 20px; }
       .timeline { padding-left: 22px; }
-      .company::before { left: -22px; width: 14px; height: 14px; }
+      .company::before { left: -22px; width: 10px; height: 10px; }
     }
 
     @media (max-width: 560px) {
