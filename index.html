@@ -282,7 +282,7 @@
       content: "";
       width: 8px;
       height: 8px;
-      border-radius: 1px;
+      border-radius: 50%;
       background: var(--accent);
     }
 
@@ -312,7 +312,7 @@
       top: 1.4em;
       width: 6px;
       height: 6px;
-      border-radius: 1px;
+      border-radius: 50%;
       background: var(--accent);
     }
 
@@ -391,6 +391,13 @@
       outline-offset: -2px;
     }
 
+    .company-head .chevron,
+    .company-head .hint,
+    .project-head .chevron,
+    .project-head > .hint {
+      display: none;
+    }
+
     .company-head .head-main {
       display: flex;
       align-items: center;
@@ -399,33 +406,8 @@
       flex: 1 1 auto;
     }
 
-    .company-head .chevron {
-      width: 28px;
-      height: 28px;
-      border-radius: 6px;
-      display: inline-grid;
-      place-items: center;
-      background: #fff;
-      border: 1px solid var(--line);
-      color: var(--accent);
-      flex: 0 0 auto;
-      transition: transform .25s ease, background .15s ease, border-color .15s ease;
-    }
-
-    .company-head .chevron svg {
-      width: 14px;
-      height: 14px;
-      display: block;
-    }
-
     .company-card.is-collapsed .company-head {
       border-bottom-color: transparent;
-    }
-
-    .company-card.is-collapsed .chevron {
-      transform: rotate(-90deg);
-      background: var(--accent-soft);
-      border-color: transparent;
     }
 
     .company-head h3 {
@@ -441,13 +423,6 @@
       font-size: 0.92rem;
       font-variant-numeric: tabular-nums;
       white-space: nowrap;
-    }
-
-    .company-head .hint {
-      margin-left: 8px;
-      color: var(--muted);
-      font-size: 0.78rem;
-      font-weight: 500;
     }
 
     .projects { display: grid; gap: 0; }
@@ -523,29 +498,6 @@
       min-width: 0;
     }
 
-    .project-head .chevron {
-      width: 24px;
-      height: 24px;
-      border-radius: 5px;
-      display: inline-grid;
-      place-items: center;
-      background: var(--accent-soft);
-      color: var(--accent);
-      flex: 0 0 auto;
-      transition: transform .25s ease, background .15s ease;
-    }
-
-    .project-head .chevron svg {
-      width: 12px;
-      height: 12px;
-      display: block;
-    }
-
-    .project.is-collapsed .project-head .chevron {
-      transform: rotate(-90deg);
-      background: #f0f1f3;
-    }
-
     .project-title {
       margin: 0;
       font-size: 1.02rem;
@@ -560,16 +512,9 @@
       content: "";
       width: 3px;
       height: 1.1em;
-      border-radius: 1px;
+      border-radius: 2px;
       background: var(--accent);
       flex: 0 0 auto;
-    }
-
-    .project-head > .hint {
-      color: var(--muted);
-      font-size: 0.78rem;
-      font-weight: 500;
-      white-space: nowrap;
     }
 
     .project-head > .period-inline {
@@ -695,42 +640,6 @@
       font-weight: 500;
     }
 
-    .edu-list {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-      display: grid;
-      gap: 12px;
-    }
-
-    .edu-list li {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 8px 20px;
-      padding: 16px 18px;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      background: #fafafa;
-    }
-
-    .edu-list .school {
-      font-weight: 700;
-      color: var(--ink);
-    }
-
-    .edu-list .degree {
-      color: var(--ink-soft);
-      margin-top: 2px;
-      font-size: 0.92rem;
-    }
-
-    .edu-list .period {
-      color: var(--muted);
-      font-weight: 600;
-      font-variant-numeric: tabular-nums;
-    }
-
     .footer-note {
       text-align: center;
       color: var(--muted);
@@ -762,7 +671,6 @@
     @media (max-width: 560px) {
       .nav { grid-template-columns: 1fr; }
       .company-head { flex-direction: column; }
-      .edu-list li { flex-direction: column; }
     }
 
     @media print {
@@ -819,7 +727,6 @@
             <a href="#proj-used-car" data-project>二手车承保理赔信息查询服务</a>
           </div>
         </details>
-        <a href="#education" class="nav-section">教育经历</a>
       </nav>
     </aside>
 
@@ -1561,26 +1468,6 @@
           </article>
 
         </div>
-      </section>
-
-      <section class="section" id="education">
-        <h2>教育经历</h2>
-        <ul class="edu-list">
-          <li>
-            <div>
-              <div class="school">北京航空航天大学</div>
-              <div class="degree">本科</div>
-            </div>
-            <div class="period">2018.3 — 2021.7</div>
-          </li>
-          <li>
-            <div>
-              <div class="school">四川职业技术学院</div>
-              <div class="degree">大专</div>
-            </div>
-            <div class="period">2009.9 — 2012.6</div>
-          </li>
-        </ul>
       </section>
 
       <p class="footer-note">双击打开本文件即可在浏览器中查看</p>
