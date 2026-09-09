@@ -11,6 +11,6 @@
 |------|------|--------|
 | Context | [c4-context.md](./c4-context.md) | 人、本系统、外部 Agent / 通知 / 分发系统边界 |
 | Container | [c4-containers.md](./c4-containers.md) | CLI、面板、执行器、SQLite、技能与 Provider |
-| Deployment | [c4-deployment.md](./c4-deployment.md) | 开发机本地运行时 + 内网分发 / 开源演示拓扑 |
+| Deployment | [c4-deployment.md](./c4-deployment.md) · [deploy.svg](./deploy.svg) | 开发机本地运行时 + 内网分发 / 开源演示拓扑（`deploy.svg` 为主视图） |
 
 建议阅读顺序：Context → Container → Deployment。
