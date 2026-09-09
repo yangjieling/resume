@@ -6,24 +6,35 @@
   <title>杨杰灵 · 个人简历</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --ink: #141618;
-      --ink-soft: #3a3f46;
-      --muted: #6b7178;
-      --line: #dddfe3;
-      --paper: #f5f5f4;
+      --ink: #18181b;
+      --ink-soft: #3f3f46;
+      --muted: #71717a;
+      --line: #e4e4e7;
+      --paper: #fafafa;
       --panel: #ffffff;
-      --accent: #3a4a5c;
-      --accent-soft: #eef0f3;
-      --accent-deep: #2c3848;
-      --rail: #c8ccd2;
-      --shadow: none;
-      --radius: 10px;
-      --nav-w: 240px;
-      --font-display: "Syne", "Noto Sans SC", sans-serif;
+      --accent: #18181b;
+      --accent-mid: #52525b;
+      --accent-soft: #f4f4f5;
+      --rail: #d4d4d8;
+      --zinc-50: #fafafa;
+      --zinc-100: #f4f4f5;
+      --zinc-200: #e4e4e7;
+      --radius: 6px;
+      --nav-w: 228px;
+      --font-display: "Outfit", "Noto Sans SC", "PingFang SC", sans-serif;
       --font-body: "Noto Sans SC", "PingFang SC", "Hiragino Sans GB", sans-serif;
+      --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+      --fs-hero: clamp(2rem, 3.6vw, 2.65rem);
+      --fs-section: 1.05rem;
+      --fs-company: 1.02rem;
+      --fs-project: 0.95rem;
+      --fs-body: 0.875rem;
+      --fs-meta: 0.75rem;
+      --lh-body: 1.68;
+      --lh-tight: 1.48;
     }
 
     * { box-sizing: border-box; }
@@ -32,148 +43,166 @@
       margin: 0;
       color: var(--ink-soft);
       font-family: var(--font-body);
-      background: var(--paper);
+      background-color: var(--paper);
       line-height: 1.7;
       -webkit-font-smoothing: antialiased;
     }
 
     a { color: inherit; text-decoration: none; }
+    a:hover { color: var(--ink); }
+
     .shell {
-      width: min(1180px, calc(100% - 32px));
+      width: min(1140px, calc(100% - 40px));
       margin: 0 auto;
-      padding: 28px 0 72px;
+      padding: 40px 0 88px;
       display: grid;
       grid-template-columns: var(--nav-w) minmax(0, 1fr);
-      gap: 28px;
+      gap: 44px;
       align-items: start;
     }
 
     .side {
       position: sticky;
-      top: 24px;
+      top: 28px;
       display: flex;
       flex-direction: column;
-      gap: 18px;
+      gap: 30px;
+      padding-top: 8px;
     }
 
-    .brand-card,
-    .nav,
-    .section,
-    .hero {
-      background: var(--panel);
-      border: 1px solid var(--line);
-      box-shadow: none;
-      border-radius: var(--radius);
+    .brand {
+      padding: 0;
+      border: 0;
+      background: transparent;
     }
 
-    .brand-card {
-      padding: 20px 18px;
-      background: var(--panel);
-    }
-
-    .brand-card .name {
+    .brand .name {
       font-family: var(--font-display);
-      font-size: 1.55rem;
-      font-weight: 800;
-      letter-spacing: 0.02em;
+      font-size: 1.85rem;
+      font-weight: 700;
+      letter-spacing: -0.025em;
       line-height: 1.2;
-      margin: 0 0 8px;
+      margin: 0 0 12px;
       color: var(--ink);
     }
 
-    .brand-card .role {
+    .brand .role {
       margin: 0;
-      color: var(--accent);
-      font-weight: 600;
-      font-size: 0.92rem;
+      color: var(--muted);
+      font-weight: 500;
+      font-size: 0.88rem;
+      letter-spacing: -0.01em;
+      padding-left: 0;
+      border-left: 0;
+      line-height: 1.4;
     }
 
-    .brand-card .meta {
-      margin: 14px 0 0;
+    .brand .meta {
+      margin: 22px 0 0;
       padding: 0;
       list-style: none;
       display: grid;
-      gap: 8px;
+      gap: 12px;
       font-size: 0.86rem;
       color: var(--ink-soft);
     }
 
-    .brand-card .meta li {
-      display: flex;
-      gap: 8px;
-      align-items: baseline;
+    .brand .meta li { display: grid; gap: 3px; }
+
+    .brand .meta span {
+      color: var(--muted);
+      font-size: 0.72rem;
+      letter-spacing: 0.02em;
+      font-weight: 500;
+      font-family: var(--font-mono);
     }
 
-    .brand-card .meta span {
-      color: var(--muted);
-      min-width: 2.5em;
+    .brand .meta a {
+      color: var(--ink);
+      border-bottom: 1px solid transparent;
+      transition: border-color .15s ease, color .15s ease;
+      width: fit-content;
+    }
+
+    .brand .meta a:hover {
+      color: var(--ink);
+      border-bottom-color: var(--line);
     }
 
     .nav {
-      padding: 12px;
+      padding: 0 0 0 14px;
       display: grid;
-      gap: 6px;
-      max-height: calc(100vh - 280px);
+      gap: 2px;
+      max-height: calc(100vh - 300px);
       overflow: auto;
+      background: transparent;
+      border: 0;
+      border-left: 1px solid var(--line);
     }
 
     .nav a {
       display: block;
-      padding: 11px 14px;
-      border-radius: 8px;
+      padding: 8px 10px;
+      border-radius: var(--radius);
       color: var(--ink-soft);
-      font-size: 0.94rem;
+      font-size: 0.88rem;
       font-weight: 500;
-      border: 1px solid transparent;
-      transition: background .15s ease, color .15s ease, border-color .15s ease;
+      border: 0;
+      position: relative;
+      transition: color .15s ease;
     }
 
-    .nav a:hover {
-      background: var(--accent-soft);
-      color: var(--ink);
-    }
-
+    .nav a:hover { background: transparent; color: var(--ink); }
     .nav a.active {
-      background: var(--accent);
-      color: #fff;
-      border-color: var(--accent);
+      background: transparent;
+      color: var(--ink);
+      font-weight: 600;
     }
 
-    .nav-group {
-      display: grid;
-      gap: 4px;
+    .nav a.nav-section.active::before,
+    .nav-sub a.active::before {
+      content: "";
+      position: absolute;
+      left: -15px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 2px;
+      height: 1.1em;
+      background: var(--ink);
+      border-radius: 1px;
     }
+
+    .nav-group { display: grid; gap: 2px; }
 
     .nav-group > summary {
       list-style: none;
       cursor: pointer;
-      padding: 11px 14px;
-      border-radius: 8px;
+      padding: 8px 10px;
+      border-radius: var(--radius);
       color: var(--ink-soft);
-      font-size: 0.94rem;
+      font-size: 0.88rem;
       font-weight: 600;
-      border: 1px solid transparent;
+      border: 0;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 8px;
       user-select: none;
-      transition: background .15s ease, color .15s ease;
     }
 
     .nav-group > summary::-webkit-details-marker { display: none; }
 
     .nav-group > summary::after {
       content: "";
-      width: 8px;
-      height: 8px;
-      border-right: 2px solid currentColor;
-      border-bottom: 2px solid currentColor;
+      width: 6px;
+      height: 6px;
+      border-right: 1.5px solid currentColor;
+      border-bottom: 1.5px solid currentColor;
       transform: rotate(45deg);
       transition: transform .2s ease;
-      opacity: 0.7;
+      opacity: 0.65;
       flex: 0 0 auto;
-      margin-top: -4px;
+      margin-top: -3px;
     }
 
     .nav-group[open] > summary::after {
@@ -183,108 +212,200 @@
 
     .nav-group > summary:hover,
     .nav-group.is-active > summary {
-      background: var(--accent-soft);
+      background: transparent;
       color: var(--ink);
     }
 
     .nav-sub {
       display: grid;
-      gap: 2px;
-      padding: 2px 0 4px 8px;
+      gap: 1px;
+      padding: 2px 0 4px 2px;
       margin: 0;
     }
 
     .nav-sub a {
-      padding: 8px 12px;
-      font-size: 0.82rem;
+      padding: 6px 10px;
+      font-size: 0.76rem;
       font-weight: 500;
       line-height: 1.35;
       color: var(--muted);
     }
 
     .nav-sub a.active {
-      background: var(--accent);
-      color: #fff;
+      background: transparent;
+      color: var(--ink);
+      font-weight: 600;
     }
 
     .nav-company {
-      margin: 4px 4px 2px;
-      padding: 4px 8px 2px;
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.04em;
+      margin: 10px 4px 2px;
+      padding: 2px 8px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
       color: var(--muted);
+      font-family: var(--font-mono);
     }
 
-    .main { display: grid; gap: 22px; min-width: 0; }
+    .main {
+      display: grid;
+      gap: 0;
+      min-width: 0;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 0 40px 40px;
+      font-size: var(--fs-body);
+      line-height: var(--lh-body);
+    }
 
     .hero {
-      padding: 28px 30px;
+      padding: 38px 0 30px;
       display: grid;
-      gap: 14px;
-      background: var(--panel);
+      gap: 16px;
+      background: transparent;
+      border: 0;
+      border-bottom: 1px solid var(--line);
+      border-radius: 0;
       position: relative;
-      overflow: hidden;
+      overflow: visible;
     }
 
     .hero h1 {
       margin: 0;
       font-family: var(--font-display);
-      font-size: clamp(2rem, 4vw, 2.7rem);
-      letter-spacing: 0.03em;
+      font-size: var(--fs-hero);
+      letter-spacing: -0.03em;
       line-height: 1.15;
       color: var(--ink);
+      font-weight: 700;
     }
 
     .hero .subtitle {
       margin: 0;
-      max-width: 48ch;
+      max-width: 36rem;
       color: var(--ink-soft);
-      font-size: 1.02rem;
+      font-size: 0.95rem;
+      line-height: var(--lh-tight);
+      display: grid;
+      gap: 6px;
     }
 
-    .chips {
+    .hero .subtitle-lead {
+      color: var(--ink);
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      font-size: 1rem;
+    }
+
+    .hero .subtitle-sub {
+      color: var(--muted);
+      font-size: 0.875rem;
+      line-height: var(--lh-tight);
+    }
+
+    .hero-cta {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
       margin-top: 4px;
+      font-size: var(--fs-meta);
     }
 
-    .chip {
-      display: inline-flex;
-      align-items: center;
-      padding: 5px 11px;
-      border-radius: 4px;
-      background: transparent;
-      border: 1px solid var(--line);
+    .hero-cta a {
       color: var(--ink-soft);
-      font-size: 0.82rem;
       font-weight: 500;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 6px 12px;
+      background: var(--panel);
+      transition: background .15s ease, color .15s ease, border-color .15s ease;
+    }
+
+    .hero-cta a:first-child {
+      background: var(--ink);
+      color: #fff;
+      border-color: var(--ink);
+    }
+
+    .hero-cta a:hover {
+      color: var(--ink);
+      border-color: var(--accent-mid);
+      background: var(--zinc-100);
+    }
+
+    .hero-cta a:first-child:hover {
+      background: #27272a;
+      color: #fff;
+      border-color: #27272a;
+    }
+
+    @keyframes hero-in {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero h1,
+    .hero .subtitle,
+    .hero-cta {
+      animation: hero-in 0.55s ease both;
+    }
+    .hero .subtitle { animation-delay: 0.06s; }
+    .hero-cta { animation-delay: 0.12s; }
+
+    .signals {
+      margin: 0;
+      padding: 18px 0 8px;
+      list-style: none;
+      display: grid;
+      gap: 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .signals li {
+      display: grid;
+      grid-template-columns: 6.8rem minmax(0, 1fr);
+      gap: 14px;
+      align-items: baseline;
+      font-size: 0.86rem;
+      line-height: var(--lh-tight);
+      padding: 10px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .signals li:first-child { border-top: 0; padding-top: 2px; }
+
+    .signals strong {
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 0.84rem;
+      letter-spacing: -0.01em;
     }
 
     .section {
-      padding: 26px 28px 28px;
+      padding: 30px 0 10px;
       scroll-margin-top: 24px;
+      background: transparent;
+      border: 0;
+      border-radius: 0;
+      border-bottom: 1px solid var(--line);
     }
+
+    .section:last-of-type { border-bottom: 0; }
 
     .section h2 {
-      margin: 0 0 18px;
+      margin: 0 0 16px;
       font-family: var(--font-display);
-      font-size: 1.35rem;
-      letter-spacing: 0.04em;
-      display: flex;
-      align-items: center;
-      gap: 12px;
+      font-size: var(--fs-section);
+      letter-spacing: -0.02em;
+      display: block;
       color: var(--ink);
+      font-weight: 600;
+      line-height: 1.3;
     }
 
-    .section h2::before {
-      content: "";
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--accent);
-    }
+    .section h2::before { display: none; content: none; }
 
     .summary-list,
     .skill-list {
@@ -293,81 +414,73 @@
       list-style: none;
       display: grid;
       gap: 12px;
+      font-size: var(--fs-body);
+      line-height: var(--lh-body);
     }
 
     .summary-list li,
     .skill-list li {
       position: relative;
-      padding: 14px 16px 14px 40px;
-      background: #fafafa;
-      border: 1px solid var(--line);
-      border-radius: 8px;
+      padding: 0 0 0 16px;
+      background: transparent;
+      border: 0;
+      border-left: 2px solid var(--line);
+      border-radius: 0;
     }
 
     .summary-list li::before,
-    .skill-list li::before {
-      content: "";
-      position: absolute;
-      left: 16px;
-      top: 1.4em;
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--accent);
-    }
+    .skill-list li::before { display: none; }
 
     .skill-list li strong {
       display: block;
-      margin-bottom: 4px;
+      margin-bottom: 3px;
       color: var(--ink);
-      font-weight: 700;
+      font-weight: 600;
     }
 
     .timeline {
       position: relative;
       display: grid;
-      gap: 28px;
-      padding-left: 28px;
+      gap: 34px;
+      padding-left: 24px;
     }
 
     .timeline::before {
       content: "";
       position: absolute;
-      left: 7px;
-      top: 8px;
-      bottom: 8px;
+      left: 5px;
+      top: 12px;
+      bottom: 12px;
       width: 1px;
       background: var(--rail);
     }
 
-    .company {
-      position: relative;
-    }
+    .company { position: relative; }
 
     .company::before {
       content: "";
       position: absolute;
-      left: -28px;
-      top: 20px;
-      width: 11px;
-      height: 11px;
+      left: -24px;
+      top: 15px;
+      width: 9px;
+      height: 9px;
       border-radius: 50%;
-      background: #fff;
-      border: 2px solid var(--accent);
+      background: var(--panel);
+      border: 2px solid var(--rail);
       z-index: 1;
     }
 
     .company-card {
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      overflow: hidden;
-      background: #fff;
+      border: 0;
+      border-radius: 0;
+      overflow: visible;
+      background: transparent;
     }
 
     .company-head {
       width: 100%;
-      padding: 18px 20px;
-      background: #fafafa;
+      padding: 0 0 12px;
+      background: transparent;
       border: 0;
       border-bottom: 1px solid var(--line);
       display: flex;
@@ -379,29 +492,37 @@
       font: inherit;
       color: inherit;
       text-align: left;
-      transition: background .15s ease;
+      transition: color .15s ease;
     }
 
-    .company-head:hover {
-      background: var(--accent-soft);
-    }
-
+    .company-head:hover { background: transparent; color: var(--ink); }
     .company-head:focus-visible {
-      outline: 2px solid var(--accent);
-      outline-offset: -2px;
+      outline: 2px solid var(--ink);
+      outline-offset: 4px;
     }
 
     .company-head .chevron,
-    .company-head .hint,
-    .project-head .chevron,
-    .project-head > .hint {
-      display: none;
+    .project-head .chevron {
+      display: inline-flex;
+      width: 16px;
+      height: 16px;
+      color: var(--muted);
+      flex: 0 0 auto;
+      transition: transform .2s ease;
     }
+
+    .company-card:not(.is-collapsed) .company-head .chevron,
+    .project:not(.is-collapsed) .project-head .chevron {
+      transform: rotate(180deg);
+    }
+
+    .company-head .hint,
+    .project-head > .hint { display: none; }
 
     .company-head .head-main {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
       min-width: 0;
       flex: 1 1 auto;
     }
@@ -412,83 +533,89 @@
 
     .company-head h3 {
       margin: 0;
-      font-size: 1.12rem;
-      font-weight: 700;
+      font-size: var(--fs-company);
+      font-weight: 600;
+      font-family: var(--font-display);
       color: var(--ink);
+      line-height: 1.35;
+      letter-spacing: -0.01em;
     }
 
     .company-head .period {
       color: var(--muted);
-      font-weight: 600;
-      font-size: 0.92rem;
+      font-weight: 500;
+      font-size: var(--fs-meta);
+      font-family: var(--font-mono);
       font-variant-numeric: tabular-nums;
       white-space: nowrap;
     }
 
     .projects { display: grid; gap: 0; }
+    .company-card.is-collapsed .projects { display: none; }
 
-    .company-card.is-collapsed .projects {
-      display: none;
-    }
-
-    .timeline-toolbar {
+    .section-head {
+      width: 100%;
+      margin: 0 0 14px;
+      padding: 0;
+      border: 0;
+      background: transparent;
       display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin: -6px 0 16px;
-    }
-
-    .timeline-toolbar button {
-      appearance: none;
-      border: 1px solid var(--line);
-      background: #fff;
-      color: var(--ink-soft);
-      border-radius: 4px;
-      padding: 6px 14px;
-      font: inherit;
-      font-size: 0.82rem;
-      font-weight: 600;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
       cursor: pointer;
-      transition: background .15s ease, color .15s ease, border-color .15s ease;
+      font: inherit;
+      color: inherit;
+      text-align: left;
     }
 
-    .timeline-toolbar button:hover {
-      background: var(--accent-soft);
-      color: var(--ink);
-      border-color: var(--line);
+    .section-head h2 {
+      margin: 0;
+    }
+
+    .section-head .toggle-hint {
+      color: var(--muted);
+      font-size: var(--fs-meta);
+      font-weight: 500;
+      flex: 0 0 auto;
+      transition: color .15s ease;
+    }
+
+    .section-head:hover .toggle-hint { color: var(--ink); }
+    .section-head:focus-visible {
+      outline: 2px solid var(--ink);
+      outline-offset: 4px;
+      border-radius: 4px;
     }
 
     .project {
       border-top: 1px solid var(--line);
       scroll-margin-top: 24px;
+      padding: 4px 0 8px;
     }
 
     .project:first-child { border-top: 0; }
 
     .project-head {
       width: 100%;
-      padding: 16px 20px;
+      padding: 14px 0 8px;
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
       gap: 8px 12px;
       border: 0;
-      background: #fff;
+      background: transparent;
       cursor: pointer;
       font: inherit;
       color: inherit;
       text-align: left;
-      transition: background .15s ease;
     }
 
-    .project-head:hover {
-      background: #fafafa;
-    }
-
+    .project-head:hover { background: transparent; }
     .project-head:focus-visible {
-      outline: 2px solid var(--accent);
-      outline-offset: -2px;
+      outline: 2px solid var(--ink);
+      outline-offset: 4px;
     }
 
     .project-head .head-main {
@@ -500,75 +627,113 @@
 
     .project-title {
       margin: 0;
-      font-size: 1.02rem;
-      font-weight: 700;
+      font-size: var(--fs-project);
+      font-weight: 600;
+      font-family: var(--font-display);
       color: var(--ink);
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 0;
+      line-height: 1.4;
+      letter-spacing: -0.015em;
     }
 
-    .project-title::before {
-      content: "";
-      width: 3px;
-      height: 1.1em;
-      border-radius: 2px;
-      background: var(--accent);
-      flex: 0 0 auto;
-    }
+    .project-title::before { display: none; }
 
     .project-head > .period-inline {
       margin-left: auto;
       color: var(--muted);
-      font-size: 0.82rem;
+      font-size: var(--fs-meta);
       font-weight: 500;
+      font-family: var(--font-mono);
       white-space: nowrap;
     }
 
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      padding: 0 0 12px 26px;
+    }
+
+    .project-tags span {
+      display: inline-flex;
+      align-items: center;
+      padding: 2px 8px;
+      border-radius: 6px;
+      background: var(--zinc-50);
+      border: 1px solid var(--zinc-200);
+      color: var(--ink-soft);
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      font-weight: 500;
+      line-height: 1.5;
+      transition: transform .15s ease, border-color .15s ease, background .15s ease;
+    }
+
+    .project-tags span:hover {
+      transform: scale(1.05);
+      background: var(--zinc-100);
+      border-color: #d4d4d8;
+    }
+
+    /* tags stay visible when collapsed for quick scanning */
+
     .project-body a.ext-link {
-      color: var(--accent);
+      color: var(--ink);
       font-weight: 600;
       text-decoration: underline;
       text-underline-offset: 3px;
+      text-decoration-color: var(--line);
     }
 
     .project-body a.ext-link:hover {
-      color: var(--ink);
+      text-decoration-color: var(--ink);
     }
 
-    .project-body {
-      padding: 0 20px 20px;
-    }
-
-    .project.is-collapsed .project-body {
-      display: none;
-    }
+    .project-body { padding: 0 0 12px 26px; }
+    .project.is-collapsed .project-body { display: none; }
 
     .block {
-      margin: 0 0 12px;
-      padding: 12px 14px;
-      border-radius: 6px;
-      background: #fafafa;
-      border: 1px solid var(--line);
+      margin: 0 0 16px;
+      padding: 0;
+      border-radius: 0;
+      background: transparent;
+      border: 0;
     }
 
     .block:last-child { margin-bottom: 0; }
 
     .block .label {
-      display: inline-block;
+      display: block;
       margin-bottom: 6px;
-      font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: 0.06em;
-      color: var(--accent);
-      text-transform: uppercase;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+      text-transform: none;
+      line-height: 1.3;
+      font-family: var(--font-mono);
+    }
+
+    .block.result {
+      padding: 12px 14px;
+      margin-bottom: 16px;
+      background: var(--zinc-50);
+      border-left: 2px solid #a1a1aa;
+    }
+
+    .block.result .label {
+      color: var(--ink-soft);
+      letter-spacing: 0.04em;
     }
 
     .block p,
     .block ul {
       margin: 0;
       color: var(--ink-soft);
-      font-size: 0.94rem;
+      font-size: var(--fs-body);
+      line-height: var(--lh-body);
     }
 
     .block ul {
@@ -590,116 +755,134 @@
     }
 
     .challenge-item .name {
-      font-weight: 700;
+      font-weight: 600;
       color: var(--ink);
       margin-bottom: 8px;
     }
 
-    .challenge-item p + p {
-      margin-top: 12px;
-    }
+    .challenge-item p + p { margin-top: 12px; }
 
     .flow {
       display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      align-items: center;
+      flex-direction: column;
+      gap: 0;
+      align-items: stretch;
+      counter-reset: flow-step;
+      padding-left: 2.35em;
     }
 
     .flow span {
-      display: inline-flex;
-      align-items: center;
-      padding: 4px 10px;
-      border-radius: 4px;
-      background: #fff;
-      border: 1px solid var(--line);
-      font-size: 0.82rem;
-      color: var(--ink-soft);
-    }
-
-    .flow i {
-      font-style: normal;
-      color: var(--muted);
-      font-weight: 700;
-      margin: 0 2px;
-    }
-
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-    }
-
-    .tags span {
-      padding: 4px 10px;
-      border-radius: 4px;
+      display: block;
+      padding: 7px 0 7px 12px;
+      border-radius: 0;
       background: transparent;
-      border: 1px solid var(--line);
+      border: 0;
+      border-left: 2px solid var(--line);
+      font-size: 0.84rem;
       color: var(--ink-soft);
-      font-size: 0.8rem;
-      font-weight: 500;
+      line-height: var(--lh-tight);
+      counter-increment: flow-step;
+      position: relative;
     }
+
+    .flow span::before {
+      content: counter(flow-step, decimal-leading-zero);
+      position: absolute;
+      left: -2.35em;
+      top: 7px;
+      width: 2em;
+      text-align: right;
+      font-size: 0.68rem;
+      font-weight: 500;
+      font-family: var(--font-mono);
+      font-variant-numeric: tabular-nums;
+      color: var(--muted);
+      letter-spacing: 0.02em;
+    }
+
+    .flow i { display: none; }
 
     .footer-note {
-      text-align: center;
+      text-align: left;
       color: var(--muted);
-      font-size: 0.82rem;
-      padding: 8px 0 0;
+      font-size: 0.78rem;
+      padding: 26px 0 0;
     }
 
     @media (max-width: 900px) {
       .shell {
         grid-template-columns: 1fr;
-        width: min(100% - 20px, 1180px);
-        padding-top: 16px;
+        width: min(100% - 24px, 1140px);
+        padding-top: 22px;
+        gap: 20px;
       }
-
-      .side {
-        position: static;
-      }
-
+      .side { position: static; gap: 16px; }
       .nav {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        border-left: 0;
+        padding-left: 0;
+        max-height: none;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px 8px;
       }
-
-      .brand-card .name { font-size: 1.35rem; }
-      .section, .hero { padding: 20px; }
-      .timeline { padding-left: 22px; }
-      .company::before { left: -22px; width: 10px; height: 10px; }
+      .nav a.nav-section.active::before,
+      .nav-sub a.active::before { display: none; }
+      .nav-group { width: 100%; }
+      .brand .name { font-size: 1.5rem; }
+      .main { padding: 0 22px 28px; }
+      .hero { padding-top: 26px; }
+      .timeline { padding-left: 18px; }
+      .company::before { left: -18px; width: 8px; height: 8px; }
+      .signals li { grid-template-columns: 1fr; gap: 3px; }
+      .project-body { padding-left: 0; }
+      .project-tags { padding-left: 0; }
+      .flow { padding-left: 0; }
+      .flow span::before { display: none; }
     }
 
     @media (max-width: 560px) {
-      .nav { grid-template-columns: 1fr; }
-      .company-head { flex-direction: column; }
+      .nav { display: grid; grid-template-columns: 1fr; }
+      .company-head { flex-direction: column; align-items: flex-start; }
+      .hero h1 { font-size: 1.8rem; letter-spacing: -0.02em; }
     }
 
     @media print {
       body { background: #fff; }
       .shell { width: 100%; display: block; padding: 0; }
       .side { display: none; }
-      .timeline-toolbar { display: none; }
+      .section-head .toggle-hint { display: none; }
       .company-head .chevron,
-      .company-head .hint { display: none; }
+      .project-head .chevron { display: none; }
       .company-card.is-collapsed .projects { display: grid; }
       .project.is-collapsed .project-body { display: block; }
-      .project-head .chevron,
-      .project-head > .hint { display: none; }
-      .brand-card, .nav, .section, .hero, .company-card, .block {
+      .project.is-collapsed .project-tags { display: flex; }
+      .main { border: 0; padding: 0; box-shadow: none; }
+      .block.result { break-inside: avoid; }
+      .section, .hero, .company-card {
         box-shadow: none;
         break-inside: avoid;
       }
+      .hero h1,
+      .hero .subtitle,
+      .hero-cta { animation: none; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      * { transition: none !important; animation: none !important; }
     }
   </style>
+
 </head>
 <body>
   <div class="shell">
     <aside class="side">
-      <div class="brand-card">
+      <div class="brand">
         <p class="name">杨杰灵</p>
         <p class="role">资深微服务架构师</p>
         <ul class="meta">
-          <li><span>电话</span>15611576308</li>
-          <li><span>邮箱</span>yuanyi3136@163.com</li>
+          <li><span>电话</span><a href="tel:15611576308">15611576308</a></li>
+          <li><span>邮箱</span><a href="mailto:yuanyi3136@163.com">yuanyi3136@163.com</a></li>
           <li><span>地点</span>北京·朝阳</li>
           <li><span>状态</span>在职 · 面议</li>
         </ul>
@@ -708,7 +891,7 @@
         <a href="#summary" class="nav-section active">个人总结</a>
         <a href="#skills" class="nav-section">专业技能</a>
         <a href="#experience" class="nav-section">工作经历</a>
-        <details class="nav-group" open>
+        <details class="nav-group">
           <summary>项目</summary>
           <div class="nav-sub">
             <div class="nav-company">京东</div>
@@ -733,23 +916,30 @@
     <main class="main">
       <header class="hero">
         <h1>杨杰灵</h1>
-        <p class="subtitle">近 10 年 Java 后端 / 微服务架构经验，擅长高并发系统设计、数据迁移与研发效能平台落地。</p>
-        <div class="chips">
-          <span class="chip">微服务架构</span>
-          <span class="chip">高并发</span>
-          <span class="chip">分库分表</span>
-          <span class="chip">研发效能</span>
-          <span class="chip">AI 工程化</span>
+        <p class="subtitle">
+          <span class="subtitle-lead">深耕业务系统的微服务与高并发架构</span>
+          <span class="subtitle-sub">贯通数据迁移与稳定性保障，亦覆盖平台建设与 AI 效能落地</span>
+        </p>
+        <div class="hero-cta">
+          <a href="mailto:yuanyi3136@163.com">发邮件</a>
+          <a href="tel:15611576308">打电话</a>
+          <a href="https://github.com/yangjieling/agent-desk" target="_blank" rel="noopener noreferrer">开源 agent-desk</a>
         </div>
       </header>
+
+      <ul class="signals" aria-label="关键成果">
+        <li><strong>业务系统</strong><span>车险核心、经销商 SaaS 等业务中台落地，覆盖微服务拆分、高并发链路与稳定性保障</span></li>
+        <li><strong>分布式实战</strong><span>分库分表、全量/增量迁移与消息最终一致性，擅长性能优化与故障排查</span></li>
+        <li><strong>效能延伸</strong><span>近年落地 API 治理与 AI 研发效能 / Agent 编排（hb-cli），与业务交付相互增益</span></li>
+      </ul>
 
       <section class="section" id="summary">
         <h2>个人总结</h2>
         <ul class="summary-list">
-          <li>近 10 年 Java 后端开发与微服务架构经验，能独立完成系统拆分、核心链路设计、上线与稳定性保障。</li>
-          <li>主导百万级 API 治理与智能测试平台（扫描组件已申请专利），落地 AI 全链路研发效能平台（代码图谱、AST 解析、大模型辅助编码与提测部署）；独立设计并落地 AI Agent 编排与人机协同平台（hb-cli：技能分发、缺陷闭环、人工卡点、多 Agent 编排），并开源同源实现 agent-desk。</li>
+          <li>近 13 年 Java 后端开发与微服务架构经验，长期面向业务系统做系统拆分、核心链路设计、上线与稳定性保障。</li>
           <li>熟悉分库分表、新旧系统全量/增量迁移、消息最终一致性，以及高并发场景下的性能优化与故障排查；掌握 Docker/K8s 及阿里云监控体系。</li>
           <li>主导过架构评审、多版本系统迁移与多系统统一治理类项目，兼顾业务交付与内部技术组件沉淀。</li>
+          <li>近年亦覆盖研发效能方向：主导百万级 API 治理与智能测试平台（扫描组件已申请专利），落地 AI 全链路研发效能与 Agent 编排（hb-cli / agent-desk），与业务交付相互增益。</li>
         </ul>
       </section>
 
@@ -780,11 +970,10 @@
       </section>
 
       <section class="section" id="experience">
-        <h2>工作经历</h2>
-        <div class="timeline-toolbar">
-          <button type="button" data-expand-all>全部展开</button>
-          <button type="button" data-collapse-all>全部折叠</button>
-        </div>
+        <button type="button" class="section-head" data-experience-toggle aria-expanded="true" title="点击展开或折叠全部经历">
+          <h2>工作经历</h2>
+          <span class="toggle-hint">全部折叠</span>
+        </button>
         <div class="timeline">
 
           <!-- 京东 -->
@@ -810,18 +999,21 @@
                     </span>
                     <span class="hint">点击折叠</span>
                   </button>
+                  <div class="project-tags">
+                    <span>Spring Boot</span><span>Python</span><span>React</span><span>MySQL</span><span>Redis</span><span>MQ</span><span>OSS</span><span>图数据库</span><span>Docker</span><span>K8s</span>
+                  </div>
                   <div class="project-body">
-<div class="block">
+<div class="block result">
+                    <div class="label">工作业绩</div>
+                    <p>实现 Git 代码库图谱化存储与可视化关系查询，完成 PRD/TRD 文档自动化处理链路，落地 AI 自动生成代码并打通提测、部署流水线，配套生成项目代码 Wiki。</p>
+                  </div>
+                  <div class="block">
                     <div class="label">项目介绍</div>
                     <p>一站式 AI 代码研发协作平台，支持 Git 仓库代码向图数据库初始化入库存储代码接口、元数据与代码关联关系，支持类 Neo4j 图谱关系查询；打通 PRD 文档解析标注、TRD 生成、AI 自动编码、代码提交、自动化测试与部署全流程，依托代码图谱自动生成项目 Wiki，实现需求到上线全链路 AI 赋能。</p>
                   </div>
                   <div class="block">
                     <div class="label">项目职责</div>
                     <p>负责平台整体功能研发，完成代码图谱构建、文档解析、AI 代码生成、前后端全链路流程打通等核心模块开发。</p>
-                  </div>
-                  <div class="block">
-                    <div class="label">工作业绩</div>
-                    <p>实现 Git 代码库图谱化存储与可视化关系查询，完成 PRD/TRD 文档自动化处理链路，落地 AI 自动生成代码并打通提测、部署流水线，配套生成项目代码 Wiki。</p>
                   </div>
                   <div class="block">
                     <div class="label">核心流程</div>
@@ -835,12 +1027,7 @@
                       <span>部署上线</span>
                     </div>
                   </div>
-                  <div class="block">
-                    <div class="label">技术架构</div>
-                    <div class="tags">
-                      <span>Spring Boot</span><span>Python</span><span>React</span><span>MySQL</span><span>Redis</span><span>MQ</span><span>OSS</span><span>图数据库</span><span>Docker</span><span>K8s</span>
-                    </div>
-                  </div>
+                  
                   <div class="block">
                     <div class="label">技术亮点</div>
                     <ul>
@@ -862,8 +1049,7 @@
                       <p><strong>措施：</strong>基于 Python 封装大模型接口实现文档智能解析、标准化 TRD 产出，依托自研 Vibe Coding 工具实现前后端 AI 辅助开发，串联流水线完成代码提交、测试、部署一体化</p>
                     </div>
                   </div>
-                  </div>
-                </div>
+                  </div></div>
 
                 <div class="project" id="proj-hb-cli" data-project-item>
                   <button type="button" class="project-head" aria-expanded="true">
@@ -876,7 +1062,14 @@
                     <span class="period-inline">2026 年 3 月 — 至今</span>
                     <span class="hint">点击折叠</span>
                   </button>
+                  <div class="project-tags">
+                    <span>Python</span><span>TypeScript</span><span>Node.js</span><span>Fastify</span><span>SQLite</span><span>CLI</span><span>Web UI</span><span>JSON Schema</span><span>YAML Workflow</span><span>JoyCode</span><span>Claude Code</span><span>Codex</span><span>Cursor Agent</span><span>钉钉 / 飞书</span>
+                  </div>
                   <div class="project-body">
+                  <div class="block result">
+                    <div class="label">工作业绩</div>
+                    <p>从 0 到 1 落地 hb-cli，覆盖「安装 → 技能落地 → 缺陷/任务 → 流程编排 → Agent 执行 → 人工确认」主链路；沉淀 bug-fix、code-review、coding-impl、function-test、slow-sql 等可分发 Skill 与系统流程模板，支撑团队日常缺陷修复与编码审查；内网一键安装脚本与 Artifactory 发布链路跑通，试点团队可稳定自助升级；开源同源实现 agent-desk，对外展示可插拔 Provider 与 Schema 优先架构。</p>
+                  </div>
                   <div class="block">
                     <div class="label">项目介绍</div>
                     <p>面向研发效能场景的本地优先 AI Coding Agent 编排工作台。一键安装 CLI 与本地面板，完成技能分发落地、缺陷拉取与修复闭环、多步工作流编排，并协同 JoyCode / Claude Code / Codex / Cursor 等 Agent 执行任务；在关键节点引入人工卡点与通知深链回写，避免无人值守黑盒跑飞。内部以 hb-cli 形态对接京东 Hiboos / JoyCode 生态分发；同源能力已开源为 <a class="ext-link" href="https://github.com/yangjieling/agent-desk" target="_blank" rel="noopener noreferrer">agent-desk</a>（Apache-2.0）。</p>
@@ -884,10 +1077,6 @@
                   <div class="block">
                     <div class="label">项目职责</div>
                     <p>独立完成产品定位、架构设计与全栈落地：CLI、本地面板、任务生命周期与执行器、技能注册分发、工作流引擎、多 Agent Provider 适配、缺陷闭环与通知通道；负责内网安装包发布、版本自检升级及开源同源仓库维护。</p>
-                  </div>
-                  <div class="block">
-                    <div class="label">工作业绩</div>
-                    <p>从 0 到 1 落地 hb-cli，覆盖「安装 → 技能落地 → 缺陷/任务 → 流程编排 → Agent 执行 → 人工确认」主链路；沉淀 bug-fix、code-review、coding-impl、function-test、slow-sql 等可分发 Skill 与系统流程模板，支撑团队日常缺陷修复与编码审查；内网一键安装脚本与 Artifactory 发布链路跑通，试点团队可稳定自助升级；开源同源实现 agent-desk，对外展示可插拔 Provider 与 Schema 优先架构。</p>
                   </div>
                   <div class="block">
                     <div class="label">核心流程</div>
@@ -901,12 +1090,7 @@
                       <span>闭环归档</span>
                     </div>
                   </div>
-                  <div class="block">
-                    <div class="label">技术架构</div>
-                    <div class="tags">
-                      <span>Python</span><span>TypeScript</span><span>Node.js</span><span>Fastify</span><span>SQLite</span><span>CLI</span><span>Web UI</span><span>JSON Schema</span><span>YAML Workflow</span><span>JoyCode</span><span>Claude Code</span><span>Codex</span><span>Cursor Agent</span><span>钉钉 / 飞书</span>
-                    </div>
-                  </div>
+                  
                   <div class="block">
                     <div class="label">技术亮点</div>
                     <ul>
@@ -929,8 +1113,7 @@
                       <p><strong>措施：</strong>技能注册表 + 系统/个人流程模板分层；内网保留 JoyCode 与缺陷闭环适配，开源侧以 Schema 与 Provider 接口保持同源演进，用脚本同步 Skill 种子降低分叉成本</p>
                     </div>
                   </div>
-                  </div>
-                </div>
+                  </div></div>
               </div>
             </div>
           </article>
@@ -958,18 +1141,21 @@
                     </span>
                     <span class="hint">点击展开</span>
                   </button>
+                  <div class="project-tags">
+                    <span>Spring Cloud Alibaba</span><span>Spring Boot</span><span>ShardingSphere</span><span>RocketMQ</span><span>MySQL</span><span>Redis</span><span>OSS</span><span>Elasticsearch</span><span>Docker</span><span>K8s</span>
+                  </div>
                   <div class="project-body">
-<div class="block">
+<div class="block result">
+                    <div class="label">工作业绩</div>
+                    <p>根据产品需求完成功能设计，协调组内各模块完成方案落地，跟踪与第三方服务的联调测试。</p>
+                  </div>
+                  <div class="block">
                     <div class="label">项目介绍</div>
                     <p>响应互联网+汽车产业，加快互联网与汽车产业治理和服务的深度融合，大力建设汽车数字产业，实现汽车产业数字化转型，为汽车产业赋能增效，为车主提供更优质的服务。作为中国汽车流通领域的 SaaS 服务平台，已经数字化全国 60% 以上的汽车经销商。</p>
                   </div>
                   <div class="block">
                     <div class="label">项目职责</div>
                     <p>项目组研发，负责外呼系统模块、市场活动模块、数据迁移、销售 BDC 模块的功能设计与开发。</p>
-                  </div>
-                  <div class="block">
-                    <div class="label">工作业绩</div>
-                    <p>根据产品需求完成功能设计，协调组内各模块完成方案落地，跟踪与第三方服务的联调测试。</p>
                   </div>
                   <div class="block">
                     <div class="label">核心流程</div>
@@ -981,12 +1167,7 @@
                       <span>售后跟踪</span>
                     </div>
                   </div>
-                  <div class="block">
-                    <div class="label">技术架构</div>
-                    <div class="tags">
-                      <span>Spring Cloud Alibaba</span><span>Spring Boot</span><span>ShardingSphere</span><span>RocketMQ</span><span>MySQL</span><span>Redis</span><span>OSS</span><span>Elasticsearch</span><span>Docker</span><span>K8s</span>
-                    </div>
-                  </div>
+                  
                   <div class="block">
                     <div class="label">技术亮点</div>
                     <ul>
@@ -1017,20 +1198,20 @@
                     </span>
                     <span class="hint">点击展开</span>
                   </button>
+                  <div class="project-tags">
+                    <span>Spring Boot</span><span>Git</span><span>Canal</span><span>RocketMQ</span><span>Sharding-JDBC</span><span>MySQL</span><span>Redis</span><span>Docker</span><span>K8s</span>
+                  </div>
                   <div class="project-body">
-<div class="block">
-                    <div class="label">项目介绍</div>
-                    <p>老系统做微服务改造的同时对数据库也做了拆分，对数据量较大的业务表进行了分库分表的设计。根据业务要求需要将老系统的数据迁移到新库当中，刚开始主要是通过 DBA 进行数据迁移，后来发现有一些其他老的系统的数据也需要将数据同步到本微服务中，公司的其他团队也涉及到新老系统数据迁移的情况。所以考虑开发一套通用的迁移服务作为内部使用。</p>
-                  </div>
-                  <div class="block">
-                    <div class="label">项目职责</div>
-                    <p>项目组研发，需求调研，系统设计。核心功能设计与开发。系统上线后的数据迁移。</p>
-                  </div>
-                  <div class="block">
+<div class="block result">
                     <div class="label">工作业绩</div>
                     <p>数据迁移系统的设计与落地。协助业务方完成系统 1.0 版本到 2.0 版本的数据迁移。</p>
-                  </div>
-                  <div class="block">
+                  </div><div class="block">
+                    <div class="label">项目介绍</div>
+                    <p>老系统做微服务改造的同时对数据库也做了拆分，对数据量较大的业务表进行了分库分表的设计。根据业务要求需要将老系统的数据迁移到新库当中，刚开始主要是通过 DBA 进行数据迁移，后来发现有一些其他老的系统的数据也需要将数据同步到本微服务中，公司的其他团队也涉及到新老系统数据迁移的情况。所以考虑开发一套通用的迁移服务作为内部使用。</p>
+                  </div><div class="block">
+                    <div class="label">项目职责</div>
+                    <p>项目组研发，需求调研，系统设计。核心功能设计与开发。系统上线后的数据迁移。</p>
+                  </div><div class="block">
                     <div class="label">核心流程</div>
                     <div class="flow">
                       <span>全量同步</span><i>→</i>
@@ -1040,22 +1221,14 @@
                       <span>迁移进度统计</span><i>→</i>
                       <span>数据库扩容迁移</span>
                     </div>
-                  </div>
-                  <div class="block">
-                    <div class="label">技术架构</div>
-                    <div class="tags">
-                      <span>Spring Boot</span><span>Git</span><span>Canal</span><span>RocketMQ</span><span>Sharding-JDBC</span><span>MySQL</span><span>Redis</span><span>Docker</span><span>K8s</span>
-                    </div>
-                  </div>
-                  <div class="block">
+                  </div><div class="block">
                     <div class="label">技术亮点</div>
                     <ul>
                       <li>全量同步采用同一批次分阶段进行数据同步，可手动实现同步中断和断点续传</li>
                       <li>全量同步时采用数据过滤与数据模型转换实现批量数据迁移，提高数据写入效率</li>
                       <li>增量同步采用内存队列的方式进行数据合并，降低数据库的写入频次，避免因频繁 IO 带来的性能问题</li>
                     </ul>
-                  </div>
-                  <div class="block">
+                  </div><div class="block">
                     <div class="label">技术挑战</div>
                     <div class="challenge-item">
                       <div class="name">单库到多库数据迁移</div>
@@ -1076,20 +1249,20 @@
                     </span>
                     <span class="hint">点击展开</span>
                   </button>
+                  <div class="project-tags">
+                    <span>Spring Boot</span><span>Redis</span><span>RocketMQ</span><span>MySQL</span><span>Docker</span><span>K8s</span><span>Elasticsearch</span>
+                  </div>
                   <div class="project-body">
-<div class="block">
-                    <div class="label">项目介绍</div>
-                    <p>自研 API 设计、开发、测试一体化协作平台。通过自研部署流水线实现集团统一化 API 接口管理。监控接口的访问流量。提供接口 Mock、测试及测试案例管理，接入 AI 实现接口案例自动化推荐、造数智能体。</p>
-                  </div>
-                  <div class="block">
-                    <div class="label">项目职责</div>
-                    <p>项目研发，负责自研接口扫描系统的技术调研、设计、开发。</p>
-                  </div>
-                  <div class="block">
+<div class="block result">
                     <div class="label">工作业绩</div>
                     <p>实现集团 1000000+ 接口的扫描，为接口管理提供了最基础的数据。支持多语言接口扫描。</p>
-                  </div>
-                  <div class="block">
+                  </div><div class="block">
+                    <div class="label">项目介绍</div>
+                    <p>自研 API 设计、开发、测试一体化协作平台。通过自研部署流水线实现集团统一化 API 接口管理。监控接口的访问流量。提供接口 Mock、测试及测试案例管理，接入 AI 实现接口案例自动化推荐、造数智能体。</p>
+                  </div><div class="block">
+                    <div class="label">项目职责</div>
+                    <p>项目研发，负责自研接口扫描系统的技术调研、设计、开发。</p>
+                  </div><div class="block">
                     <div class="label">核心流程</div>
                     <div class="flow">
                       <span>接口扫描</span><i>→</i>
@@ -1099,21 +1272,13 @@
                       <span>接口流量监控</span><i>→</i>
                       <span>接口测试、分享、Mock</span>
                     </div>
-                  </div>
-                  <div class="block">
-                    <div class="label">技术架构</div>
-                    <div class="tags">
-                      <span>Spring Boot</span><span>Redis</span><span>RocketMQ</span><span>MySQL</span><span>Docker</span><span>K8s</span><span>Elasticsearch</span>
-                    </div>
-                  </div>
-                  <div class="block">
+                  </div><div class="block">
                     <div class="label">技术亮点</div>
                     <ul>
                       <li>自研接口扫描组件，可支持增量、全量两种方式，实现多语言接口扫描，已申请专利并获得集团奖励</li>
                       <li>结合当下的 AI 大模型实现接口案例自动化生成、造数智能体，解决了测试案例覆盖不全、测试数据耗时等痛点</li>
                     </ul>
-                  </div>
-                  <div class="block">
+                  </div><div class="block">
                     <div class="label">技术挑战</div>
                     <div class="challenge-item">
                       <div class="name">平台基础数据搜集 — 接口</div>
@@ -1131,8 +1296,7 @@
                       <p><strong>措施：</strong>引入第三方组件 jacoco 实现测试案例的覆盖性监控。之后引入大模型实现测试案例推荐及测试数据生成</p>
                     </div>
                   </div>
-                  </div>
-                </div>
+                  </div></div>
               </div>
             </div>
           </article>
@@ -1160,18 +1324,21 @@
                     </span>
                     <span class="hint">点击展开</span>
                   </button>
+                  <div class="project-tags">
+                    <span>Spring Cloud</span><span>Maven</span><span>Git</span><span>RocketMQ</span><span>MySQL</span><span>Redis</span><span>OSS</span><span>Nginx</span><span>Docker</span><span>K8s</span>
+                  </div>
                   <div class="project-body">
-<div class="block">
+<div class="block result">
+                    <div class="label">工作业绩</div>
+                    <p>在有限人手的情况下保证老系统稳定正常运行，按时按量跟上平台版本迭代。按时完成新一代微服务车险核心系统按期完成交付上线使用。</p>
+                  </div>
+                  <div class="block">
                     <div class="label">项目介绍</div>
                     <p>通过对接全国车险平台接口实现系统功能，完成车险从报价到出单，缴纳车船税，实现保单批改、退保，出险报案理赔。</p>
                   </div>
                   <div class="block">
                     <div class="label">项目职责</div>
                     <p>项目组开发负责人，根据实际业务提出服务拆分方案，参与新一代服务迁移方案讨论，协调开发、分配任务，完成核心模块项目设计、开发、部署及上线。</p>
-                  </div>
-                  <div class="block">
-                    <div class="label">工作业绩</div>
-                    <p>在有限人手的情况下保证老系统稳定正常运行，按时按量跟上平台版本迭代。按时完成新一代微服务车险核心系统按期完成交付上线使用。</p>
                   </div>
                   <div class="block">
                     <div class="label">核心流程</div>
@@ -1186,12 +1353,7 @@
                       <span>运维系统</span>
                     </div>
                   </div>
-                  <div class="block">
-                    <div class="label">技术架构</div>
-                    <div class="tags">
-                      <span>Spring Cloud</span><span>Maven</span><span>Git</span><span>RocketMQ</span><span>MySQL</span><span>Redis</span><span>OSS</span><span>Nginx</span><span>Docker</span><span>K8s</span>
-                    </div>
-                  </div>
+                  
                   <div class="block">
                     <div class="label">技术亮点</div>
                     <ul>
@@ -1221,20 +1383,20 @@
                     </span>
                     <span class="hint">点击展开</span>
                   </button>
+                  <div class="project-tags">
+                    <span>Spring Cloud</span><span>Maven</span><span>Git</span><span>RocketMQ</span><span>MySQL</span><span>Redis</span><span>OSS</span><span>Nginx</span><span>Docker</span><span>K8s</span>
+                  </div>
                   <div class="project-body">
-<div class="block">
-                    <div class="label">项目介绍</div>
-                    <p>响应平台对于车险费改，购买车险时，保险公司根据新的费改规则可以提供更多元化的投保方案，提供增值服务，赠送洗车券等。系统就是对增值服务的消费管理。</p>
-                  </div>
-                  <div class="block">
-                    <div class="label">项目职责</div>
-                    <p>开发负责人，需求对接，项目模块搭建，功能设计，任务分发、人员分配，代码审核，部门协调。</p>
-                  </div>
-                  <div class="block">
+<div class="block result">
                     <div class="label">工作业绩</div>
                     <p>模块深度抽象，复用程度高，易扩展，为后期作为渠道或 SaaS 服务方案预埋扩展点。</p>
-                  </div>
-                  <div class="block">
+                  </div><div class="block">
+                    <div class="label">项目介绍</div>
+                    <p>响应平台对于车险费改，购买车险时，保险公司根据新的费改规则可以提供更多元化的投保方案，提供增值服务，赠送洗车券等。系统就是对增值服务的消费管理。</p>
+                  </div><div class="block">
+                    <div class="label">项目职责</div>
+                    <p>开发负责人，需求对接，项目模块搭建，功能设计，任务分发、人员分配，代码审核，部门协调。</p>
+                  </div><div class="block">
                     <div class="label">核心流程</div>
                     <div class="flow">
                       <span>下单</span><i>→</i>
@@ -1246,21 +1408,13 @@
                       <span>服务评价</span><i>→</i>
                       <span>订单完成</span>
                     </div>
-                  </div>
-                  <div class="block">
-                    <div class="label">技术架构</div>
-                    <div class="tags">
-                      <span>Spring Cloud</span><span>Maven</span><span>Git</span><span>RocketMQ</span><span>MySQL</span><span>Redis</span><span>OSS</span><span>Nginx</span><span>Docker</span><span>K8s</span>
-                    </div>
-                  </div>
-                  <div class="block">
+                  </div><div class="block">
                     <div class="label">技术亮点</div>
                     <ul>
                       <li>使用 MQ 作为数据统一入口，实现系统的解耦和流量削峰</li>
                       <li>基于 MQ 可靠消息方案 + 最大努力通知方案解决微服务间的分布式事务</li>
                     </ul>
-                  </div>
-                  <div class="block">
+                  </div><div class="block">
                     <div class="label">技术挑战</div>
                     <div class="challenge-item">
                       <div class="name">分布式事务</div>
@@ -1268,8 +1422,7 @@
                       <p><strong>措施：</strong>通过 RocketMQ 的可靠消息方案 + 最大努力通知方案完成事务的最终一致性</p>
                     </div>
                   </div>
-                  </div>
-                </div>
+                  </div></div>
               </div>
             </div>
           </article>
@@ -1284,7 +1437,7 @@
                   </span>
                   <h3>中科软科技股份有限公司</h3>
                 </span>
-                <span class="period">2016 年 6 月 — 2019 年 6 月 <span class="hint">点击展开</span></span>
+                <span class="period">2013 年 6 月 — 2019 年 6 月 <span class="hint">点击展开</span></span>
               </button>
               <div class="projects">
                 <div class="project is-collapsed" id="proj-national-policy" data-project-item>
@@ -1297,18 +1450,21 @@
                     </span>
                     <span class="hint">点击展开</span>
                   </button>
+                  <div class="project-tags">
+                    <span>Spring Cloud</span><span>Maven</span><span>Git</span><span>RocketMQ</span><span>Oracle</span><span>Redis</span><span>OSS</span><span>Nginx</span><span>Docker</span><span>K8s</span>
+                  </div>
                   <div class="project-body">
-<div class="block">
+<div class="block result">
+                    <div class="label">工作业绩</div>
+                    <p>在「四川九寨沟灾后」车险保单数据恢复工作中，独立制定多样化的数据恢复方案，实现数据恢复脚本，完成多部门业务指导培训。提升一线员工工作效率，提高了平台在保险公司的满意度。</p>
+                  </div>
+                  <div class="block">
                     <div class="label">项目介绍</div>
                     <p>集中管理全国车辆保险市场，统一规范车辆交强险、商业保险出单规则，保障车险市场合法、合理、合规、稳定运行，对车险投保指标进行更精确的管理。</p>
                   </div>
                   <div class="block">
                     <div class="label">项目职责</div>
                     <p>项目核心模块开发人员，负责项目新需求的跟踪，功能模块设计、开发、测试、部署以及上线工作，并主导数据处理服务、统计服务的设计与开发。</p>
-                  </div>
-                  <div class="block">
-                    <div class="label">工作业绩</div>
-                    <p>在「四川九寨沟灾后」车险保单数据恢复工作中，独立制定多样化的数据恢复方案，实现数据恢复脚本，完成多部门业务指导培训。提升一线员工工作效率，提高了平台在保险公司的满意度。</p>
                   </div>
                   <div class="block">
                     <div class="label">核心流程</div>
@@ -1322,12 +1478,7 @@
                       <span>运维系统</span>
                     </div>
                   </div>
-                  <div class="block">
-                    <div class="label">技术架构</div>
-                    <div class="tags">
-                      <span>Spring Cloud</span><span>Maven</span><span>Git</span><span>RocketMQ</span><span>Oracle</span><span>Redis</span><span>OSS</span><span>Nginx</span><span>Docker</span><span>K8s</span>
-                    </div>
-                  </div>
+                  
                   <div class="block">
                     <div class="label">技术亮点</div>
                     <ul>
@@ -1355,20 +1506,20 @@
                     </span>
                     <span class="hint">点击展开</span>
                   </button>
+                  <div class="project-tags">
+                    <span>Spring Cloud</span><span>Maven</span><span>Git</span><span>RocketMQ</span><span>MySQL</span><span>Redis</span><span>OSS</span><span>Nginx</span><span>Docker</span><span>K8s</span>
+                  </div>
                   <div class="project-body">
-<div class="block">
-                    <div class="label">项目介绍</div>
-                    <p>通过全国车辆出现数据，进行精确分析，对车辆重要零部件提供投保方案，为全国车辆提供更精细化的保险，补足车辆保险的投保方案。</p>
-                  </div>
-                  <div class="block">
-                    <div class="label">项目职责</div>
-                    <p>项目开发负责人，负责项目设计、任务分发、人员分配、部门间的沟通协调，独立负责出单报价系统和注册中心的设计、开发、联调测试、部署以及上线工作。</p>
-                  </div>
-                  <div class="block">
+<div class="block result">
                     <div class="label">工作业绩</div>
                     <p>在统筹规划、项目协调以及系统设计建模等方面获得了较大的成长。</p>
-                  </div>
-                  <div class="block">
+                  </div><div class="block">
+                    <div class="label">项目介绍</div>
+                    <p>通过全国车辆出现数据，进行精确分析，对车辆重要零部件提供投保方案，为全国车辆提供更精细化的保险，补足车辆保险的投保方案。</p>
+                  </div><div class="block">
+                    <div class="label">项目职责</div>
+                    <p>项目开发负责人，负责项目设计、任务分发、人员分配、部门间的沟通协调，独立负责出单报价系统和注册中心的设计、开发、联调测试、部署以及上线工作。</p>
+                  </div><div class="block">
                     <div class="label">核心流程</div>
                     <div class="flow">
                       <span>车辆理赔信息查询</span><i>→</i>
@@ -1379,21 +1530,13 @@
                       <span>生成保单</span><i>→</i>
                       <span>电子保单</span>
                     </div>
-                  </div>
-                  <div class="block">
-                    <div class="label">技术架构</div>
-                    <div class="tags">
-                      <span>Spring Cloud</span><span>Maven</span><span>Git</span><span>RocketMQ</span><span>MySQL</span><span>Redis</span><span>OSS</span><span>Nginx</span><span>Docker</span><span>K8s</span>
-                    </div>
-                  </div>
-                  <div class="block">
+                  </div><div class="block">
                     <div class="label">技术亮点</div>
                     <ul>
                       <li>使用 Spring Cloud 作为微服务技术选型，采用 Zuul 网关做过滤访问和请求转发，Ribbon 组件负载均衡调用，Hystrix 进行服务熔断、限流和降级，并对 Eureka 注册中心进行线上感知的参数调优</li>
                       <li>通过 Redis 集群部署缓存车辆信息、理赔信息，提升系统的并发量</li>
                     </ul>
-                  </div>
-                  <div class="block">
+                  </div><div class="block">
                     <div class="label">技术挑战</div>
                     <div class="challenge-item">
                       <div class="name">大数据量处理、存储</div>
@@ -1414,20 +1557,20 @@
                     </span>
                     <span class="hint">点击展开</span>
                   </button>
+                  <div class="project-tags">
+                    <span>Spring</span><span>SpringMVC</span><span>MyBatis</span><span>Maven</span><span>SVN</span><span>RabbitMQ</span><span>MySQL</span><span>Redis</span>
+                  </div>
                   <div class="project-body">
-<div class="block">
-                    <div class="label">项目介绍</div>
-                    <p>响应上海地区二手车交易市场关于二手车必须通过二手车商进行买卖，为二手车交易提供更精准更优质的架构指导，由平台根据统一提供车辆承保及理赔信息查询。</p>
-                  </div>
-                  <div class="block">
-                    <div class="label">项目职责</div>
-                    <p>RD，参与整个系统的建设及上线。</p>
-                  </div>
-                  <div class="block">
+<div class="block result">
                     <div class="label">工作业绩</div>
                     <p>深入参与了数据清洗、脱敏、维度设计、业务制定和功能设计开发。</p>
-                  </div>
-                  <div class="block">
+                  </div><div class="block">
+                    <div class="label">项目介绍</div>
+                    <p>响应上海地区二手车交易市场关于二手车必须通过二手车商进行买卖，为二手车交易提供更精准更优质的架构指导，由平台根据统一提供车辆承保及理赔信息查询。</p>
+                  </div><div class="block">
+                    <div class="label">项目职责</div>
+                    <p>RD，参与整个系统的建设及上线。</p>
+                  </div><div class="block">
                     <div class="label">核心流程</div>
                     <div class="flow">
                       <span>承保、理赔信息查询</span><i>→</i>
@@ -1440,20 +1583,12 @@
                       <span>对账子系统</span><i>→</i>
                       <span>生成对账报表</span>
                     </div>
-                  </div>
-                  <div class="block">
-                    <div class="label">技术架构</div>
-                    <div class="tags">
-                      <span>Spring</span><span>SpringMVC</span><span>MyBatis</span><span>Maven</span><span>SVN</span><span>RabbitMQ</span><span>MySQL</span><span>Redis</span>
-                    </div>
-                  </div>
-                  <div class="block">
+                  </div><div class="block">
                     <div class="label">技术亮点</div>
                     <ul>
                       <li>使用 RabbitMQ 实现服务之间的消息推送的异步化</li>
                     </ul>
-                  </div>
-                  <div class="block">
+                  </div><div class="block">
                     <div class="label">技术挑战</div>
                     <div class="challenge-item">
                       <div class="name">高并发、防刷</div>
@@ -1461,8 +1596,7 @@
                       <p><strong>措施：</strong>将每个车商的查询次数限制配置在 MySQL 中，每天定时任务将配置缓存在 Redis 中，通过 Redis 提供高并发以及次数限制</p>
                     </div>
                   </div>
-                  </div>
-                </div>
+                  </div></div>
               </div>
             </div>
           </article>
@@ -1470,7 +1604,7 @@
         </div>
       </section>
 
-      <p class="footer-note">双击打开本文件即可在浏览器中查看</p>
+      <p class="footer-note">点击「工作经历」可展开或折叠全部项目；打印时会自动展开。</p>
     </main>
   </div>
 
@@ -1591,18 +1725,20 @@
         });
       });
 
-      const expandAll = document.querySelector("[data-expand-all]");
-      const collapseAll = document.querySelector("[data-collapse-all]");
-      if (expandAll) {
-        expandAll.addEventListener("click", () => {
-          document.querySelectorAll("[data-company]").forEach((card) => setCompanyExpanded(card, true));
-          document.querySelectorAll("[data-project-item]").forEach((project) => setProjectExpanded(project, true));
-        });
+      const experienceToggle = document.querySelector("[data-experience-toggle]");
+      function setAllExpanded(expanded) {
+        document.querySelectorAll("[data-company]").forEach((card) => setCompanyExpanded(card, expanded));
+        document.querySelectorAll("[data-project-item]").forEach((project) => setProjectExpanded(project, expanded));
+        if (experienceToggle) {
+          experienceToggle.setAttribute("aria-expanded", String(expanded));
+          const hint = experienceToggle.querySelector(".toggle-hint");
+          if (hint) hint.textContent = expanded ? "全部折叠" : "全部展开";
+        }
       }
-      if (collapseAll) {
-        collapseAll.addEventListener("click", () => {
-          document.querySelectorAll("[data-company]").forEach((card) => setCompanyExpanded(card, false));
-          document.querySelectorAll("[data-project-item]").forEach((project) => setProjectExpanded(project, false));
+      if (experienceToggle) {
+        experienceToggle.addEventListener("click", () => {
+          const expanded = experienceToggle.getAttribute("aria-expanded") !== "true";
+          setAllExpanded(expanded);
         });
       }
 
