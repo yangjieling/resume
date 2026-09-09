@@ -965,9 +965,9 @@
       </section>
 
       <section class="section" id="experience">
-        <button type="button" class="section-head" data-experience-toggle aria-expanded="true" title="点击展开或折叠全部经历">
+        <button type="button" class="section-head" data-experience-toggle aria-expanded="false" title="点击展开或折叠全部经历">
           <h2>工作经历</h2>
-          <span class="toggle-hint">全部折叠</span>
+          <span class="toggle-hint">全部展开</span>
         </button>
         <div class="timeline">
 
@@ -1716,11 +1716,43 @@
       function setCompanyExpanded(card, expanded) {
         setExpanded(card, expanded, ".company-head");
         if (expanded) renderDiagrams(card);
+        syncExperienceToggle();
       }
 
       function setProjectExpanded(project, expanded) {
         setExpanded(project, expanded, ".project-head");
         if (expanded) renderDiagrams(project);
+        syncExperienceToggle();
+      }
+
+      const experienceToggle = document.querySelector("[data-experience-toggle]");
+
+      function isAllExperienceExpanded() {
+        const companies = Array.from(document.querySelectorAll("[data-company]"));
+        const projectItems = Array.from(document.querySelectorAll("[data-project-item]"));
+        return (
+          companies.every((card) => !card.classList.contains("is-collapsed")) &&
+          projectItems.every((project) => !project.classList.contains("is-collapsed"))
+        );
+      }
+
+      function syncExperienceToggle() {
+        if (!experienceToggle) return;
+        const allExpanded = isAllExperienceExpanded();
+        experienceToggle.setAttribute("aria-expanded", String(allExpanded));
+        const hint = experienceToggle.querySelector(".toggle-hint");
+        if (hint) hint.textContent = allExpanded ? "全部折叠" : "全部展开";
+      }
+
+      function setAllExpanded(expanded) {
+        document.querySelectorAll("[data-company]").forEach((card) => {
+          setExpanded(card, expanded, ".company-head");
+        });
+        document.querySelectorAll("[data-project-item]").forEach((project) => {
+          setExpanded(project, expanded, ".project-head");
+        });
+        if (expanded) renderDiagrams();
+        syncExperienceToggle();
       }
 
       function clearNavActive() {
@@ -1843,23 +1875,12 @@
         });
       });
 
-      const experienceToggle = document.querySelector("[data-experience-toggle]");
-      function setAllExpanded(expanded) {
-        document.querySelectorAll("[data-company]").forEach((card) => setCompanyExpanded(card, expanded));
-        document.querySelectorAll("[data-project-item]").forEach((project) => setProjectExpanded(project, expanded));
-        if (expanded) renderDiagrams();
-        if (experienceToggle) {
-          experienceToggle.setAttribute("aria-expanded", String(expanded));
-          const hint = experienceToggle.querySelector(".toggle-hint");
-          if (hint) hint.textContent = expanded ? "全部折叠" : "全部展开";
-        }
-      }
       if (experienceToggle) {
         experienceToggle.addEventListener("click", () => {
-          const expanded = experienceToggle.getAttribute("aria-expanded") !== "true";
-          setAllExpanded(expanded);
+          setAllExpanded(!isAllExperienceExpanded());
         });
       }
+      syncExperienceToggle();
 
       if (location.hash.startsWith("#proj-")) {
         goToProject(location.hash.slice(1));
