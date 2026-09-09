@@ -10,6 +10,6 @@
 |------|------|--------|
 | Context | [c4-context.md](./c4-context.md) | 门店角色、本平台与外部获客 / 通信系统 |
 | Container | [c4-containers.md](./c4-containers.md) | 网关、业务微服务、中间件与数据面 |
-| Deployment | [c4-deployment.md](./c4-deployment.md) | 阿里云容器化部署拓扑（分层、少交叉） |
+| Deployment | [c4-deployment.md](./c4-deployment.md) · [deploy.svg](./deploy.svg) | 阿里云容器化部署拓扑；**deploy.svg 为主展示** |
 
 建议阅读顺序：Context → Container → Deployment。
