@@ -269,44 +269,16 @@
       line-height: var(--lh-tight);
     }
 
-    .hero-cta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 0;
-      font-size: var(--fs-meta);
-    }
-
-    .hero-cta a {
-      display: inline-flex;
-      align-items: center;
-      color: var(--ink-soft);
-      font-weight: 500;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      padding: 5px 12px;
-      background: var(--panel);
-      transition: color .15s ease, border-color .15s ease, background .15s ease;
-    }
-
-    .hero-cta a:hover {
-      color: var(--ink);
-      border-color: var(--rail);
-      background: var(--zinc-100, #f4f4f5);
-    }
-
     @keyframes hero-in {
       from { opacity: 0; transform: translateY(8px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
     .hero h1,
-    .hero .subtitle,
-    .hero-cta {
+    .hero .subtitle {
       animation: hero-in 0.55s ease both;
     }
     .hero .subtitle { animation-delay: 0.06s; }
-    .hero-cta { animation-delay: 0.12s; }
 
     .signals {
       margin: 0;
@@ -894,8 +866,7 @@
       .flow-lightbox,
       .flow-zoom-btn { display: none !important; }
       .hero h1,
-      .hero .subtitle,
-      .hero-cta { animation: none; }
+      .hero .subtitle { animation: none; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -914,6 +885,7 @@
         <ul class="meta">
           <li><span>电话</span><a href="tel:15611576308">15611576308</a></li>
           <li><span>邮箱</span><a href="mailto:yuanyi3136@163.com">yuanyi3136@163.com</a></li>
+          <li><span>开源</span><a href="https://github.com/yangjieling/agent-desk" target="_blank" rel="noopener noreferrer">agent-desk</a></li>
           <li><span>地点</span>北京·朝阳</li>
           <li><span>状态</span>在职 · 面议</li>
         </ul>
@@ -948,9 +920,6 @@
           <span class="subtitle-lead">深耕业务系统的微服务与高并发架构</span>
           <span class="subtitle-sub">贯通数据迁移与稳定性保障，亦覆盖平台建设与 AI 效能落地</span>
         </p>
-        <div class="hero-cta">
-          <a href="https://github.com/yangjieling/agent-desk" target="_blank" rel="noopener noreferrer">开源 agent-desk</a>
-        </div>
       </header>
 
       <ul class="signals" aria-label="关键成果">
