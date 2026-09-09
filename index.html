@@ -225,9 +225,9 @@
     }
 
     .hero {
-      padding: 38px 0 30px;
+      padding: 38px 0 18px;
       display: grid;
-      gap: 16px;
+      gap: 10px;
       background: transparent;
       border: 0;
       border-bottom: 1px solid var(--line);
@@ -273,36 +273,26 @@
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      margin-top: 4px;
+      margin-top: 0;
       font-size: var(--fs-meta);
     }
 
     .hero-cta a {
+      display: inline-flex;
+      align-items: center;
       color: var(--ink-soft);
       font-weight: 500;
       border: 1px solid var(--line);
       border-radius: 999px;
-      padding: 6px 12px;
+      padding: 5px 12px;
       background: var(--panel);
-      transition: background .15s ease, color .15s ease, border-color .15s ease;
-    }
-
-    .hero-cta a:first-child {
-      background: var(--ink);
-      color: #fff;
-      border-color: var(--ink);
+      transition: color .15s ease, border-color .15s ease, background .15s ease;
     }
 
     .hero-cta a:hover {
       color: var(--ink);
-      border-color: var(--accent-mid);
-      background: var(--zinc-100);
-    }
-
-    .hero-cta a:first-child:hover {
-      background: #27272a;
-      color: #fff;
-      border-color: #27272a;
+      border-color: var(--rail);
+      background: var(--zinc-100, #f4f4f5);
     }
 
     @keyframes hero-in {
@@ -320,7 +310,7 @@
 
     .signals {
       margin: 0;
-      padding: 18px 0 8px;
+      padding: 12px 0 8px;
       list-style: none;
       display: grid;
       gap: 0;
@@ -959,8 +949,6 @@
           <span class="subtitle-sub">贯通数据迁移与稳定性保障，亦覆盖平台建设与 AI 效能落地</span>
         </p>
         <div class="hero-cta">
-          <a href="mailto:yuanyi3136@163.com">发邮件</a>
-          <a href="tel:15611576308">打电话</a>
           <a href="https://github.com/yangjieling/agent-desk" target="_blank" rel="noopener noreferrer">开源 agent-desk</a>
         </div>
       </header>
