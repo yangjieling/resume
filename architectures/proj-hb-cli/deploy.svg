@@ -194,12 +194,14 @@
   <!-- CONTROL → 飞书/钉钉 (deep-link back noted in caption) -->
   <path class="edge-sync" marker-end="url(#arrow-sync)" d="M900,600 H540 V578"/>
 
-  <!-- 技能目录 ↔ GitHub via right spine (muted) -->
-  <path class="edge-muted" marker-start="url(#arrow-muted)" marker-end="url(#arrow-muted)" d="M580,316 H900 V554 H860"/>
+  <!-- 技能目录 ↔ GitHub：独立中右竖廊 (x=630)，避免与 SQLite / Agent / 右侧 spine 混淆 -->
+  <path class="edge-muted" marker-start="url(#arrow-muted)" marker-end="url(#arrow-muted)" d="M480,340 V360 H630 V520 H760 V530"/>
+  <text x="640" y="444" class="sync-label">Skill 同步</text>
+  <text x="640" y="458" class="sync-label">技能目录 ↔ GitHub</text>
 
   <text x="48" y="640" class="sync-label">请求链路</text>
   <text x="120" y="640" class="sync-label">面板 / CLI → 控制面 → 执行器 / 技能 / SQLite → 本机 Agent CLI</text>
   <text x="48" y="660" class="sync-label">外联</text>
-  <text x="88" y="660" class="sync-label">Artifactory→CLI 安装升级；控制面↔缺陷平台；控制面→飞书/钉钉（深链回控）；技能目录↔GitHub</text>
+  <text x="88" y="660" class="sync-label">Artifactory→CLI 安装升级；控制面↔缺陷平台；控制面→飞书/钉钉（深链回控）；Skill 同步走中右竖廊，避免与 SQLite/Agent 混淆</text>
   <text x="48" y="682" class="subtitle">外部分发与协同沿右侧正交绕行，避免穿越本地运行时框</text>
 </svg>

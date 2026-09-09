@@ -12,7 +12,7 @@
 | AGENTS | 本机已安装的 Agent CLI（按 Provider 拉起） |
 | EXTERNAL | Artifactory 分发、缺陷 / IM 协同、GitHub 技能种子 |
 
-请求链路：面板 / CLI → 控制面 → 执行器 / 技能 / SQLite → 本机 Agent CLI。外部分发与协同沿右侧正交绕行；飞书 / 钉钉经深链回控。
+请求链路：面板 / CLI → 控制面 → 执行器 / 技能 / SQLite → 本机 Agent CLI。外部分发与协同沿右侧正交绕行；飞书 / 钉钉经深链回控。Skill 同步为技能目录与 GitHub 之间的独立中右竖廊标注，避免与 SQLite / Agent 混淆。
 
 ## 为何不是「全家桶上 K8s」
 
