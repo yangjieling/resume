@@ -896,8 +896,8 @@
         <a href="#experience" class="nav-section">工作经历</a>
         <div class="nav-tree" aria-label="按公司浏览项目">
           <div class="nav-company">京东</div>
+          <a href="#proj-hb-cli" data-project>AI Coding Agent 编排工作台</a>
           <a href="#proj-ai-coding" data-project>AI 全链路研发效能平台</a>
-          <a href="#proj-hb-cli" data-project>AI Agent 编排与人机协同平台</a>
           <div class="nav-company">大搜车</div>
           <a href="#proj-super-4s" data-project>4S 店销售 BDC 平台</a>
           <a href="#proj-data-migration" data-project>分布式数据迁移与一致性保障平台</a>
@@ -984,6 +984,65 @@
                 <span class="period">2025 年 7 月 — 至今 <span class="hint">点击折叠</span></span>
               </button>
               <div class="projects">
+                <div class="project" id="proj-hb-cli" data-project-item>
+                  <button type="button" class="project-head" aria-expanded="true">
+                    <span class="head-main">
+                      <span class="chevron" aria-hidden="true">
+                      <svg viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </span>
+                      <h4 class="project-title">AI Coding Agent 编排工作台</h4>
+                    </span>
+                    <span class="hint">点击折叠</span>
+                  </button>
+                  <div class="project-tags">
+                    <span>Python</span><span>TypeScript</span><span>Node.js</span><span>Fastify</span><span>SQLite</span><span>CLI</span><span>Web UI</span><span>JSON Schema</span><span>YAML Workflow</span><span>JoyCode</span><span>Claude Code</span><span>Codex</span><span>Cursor Agent</span><span>钉钉 / 飞书</span>
+                  </div>
+                  <div class="project-body">
+                  <div class="block result">
+                    <div class="label">工作业绩</div>
+                    <p>从 0 到 1 落地 hb-cli，覆盖「安装 → 技能落地 → 缺陷/任务 → 流程编排 → Agent 执行 → 人工确认」主链路；沉淀 bug-fix、code-review、coding-impl、function-test、slow-sql 等可分发 Skill 与系统流程模板，支撑团队日常缺陷修复与编码审查；内网一键安装脚本与 Artifactory 发布链路跑通，试点团队可稳定自助升级；开源同源实现 agent-desk，对外展示可插拔 Provider 与 Schema 优先架构。</p>
+                  </div>
+                  <div class="block">
+                    <div class="label">项目介绍</div>
+                    <p>面向研发效能场景的本地优先 AI Coding Agent 编排工作台。一键安装 CLI 与本地面板，完成技能分发落地、缺陷拉取与修复闭环、多步工作流编排，并协同 JoyCode / Claude Code / Codex / Cursor 等 Agent 执行任务；在关键节点引入人工卡点与通知深链回写，避免无人值守黑盒跑飞。内部以 hb-cli 形态对接京东 Hiboos / JoyCode 生态分发；同源能力已开源为 <a class="ext-link" href="https://github.com/yangjieling/agent-desk" target="_blank" rel="noopener noreferrer">agent-desk</a>（Apache-2.0）。</p>
+                  </div>
+                  <div class="block">
+                    <div class="label">项目职责</div>
+                    <p>独立完成产品定位、架构设计与全栈落地：CLI、本地面板、任务生命周期与执行器、技能注册分发、工作流引擎、多 Agent Provider 适配、缺陷闭环与通知通道；负责内网安装包发布、版本自检升级及开源同源仓库维护。</p>
+                  </div>
+                  <div class="block">
+                    <div class="label">核心流程</div>
+                    <div class="flow-diagram">
+                      <pre class="mermaid">flowchart LR
+                      s1["一键安装 CLI / 技能"] --> s2["拉取缺陷并完整度分析"] --> s3["创建任务或工作流"] --> s4["多 Agent 本地执行"] --> s5["人工卡点确认"] --> s6["通知深链继续 / 中止"] --> s7["闭环归档"]
+                    </pre>
+                    </div>
+                  </div>
+                  
+                  <div class="block">
+                    <div class="label">技术亮点</div>
+                    <ul>
+                      <li>本地优先 harness：任务具备清晰生命周期（created → queued → running → awaiting → done/failed/stopped），执行器与控制面分离，支持停止、续跑与孤儿任务回收</li>
+                      <li>人工卡点协议：从 Agent 输出解析 oh-choices，任务进入 awaiting，配合 Webhook / 飞书 / 钉钉深链回复，实现「Agent 提议、人来批准」</li>
+                      <li>可插拔 Provider：Agent、Issue、Notify 后端可替换；技能以 SKILL.md 包注入提示词与工作目录，工作流支持共享会话与独立并行两种模式</li>
+                      <li>Schema 优先与双端形态：任务/工作流/设置结构可交换；内网 Python CLI + 面板对接 JoyCode 与缺陷平台，开源 TypeScript monorepo 保持同源能力对外可演示</li>
+                    </ul>
+                  </div>
+                  <div class="block">
+                    <div class="label">技术挑战</div>
+                    <div class="challenge-item">
+                      <div class="name">多 Coding Agent CLI 差异大、会话黑盒难治理</div>
+                      <p><strong>描述：</strong>JoyCode / Claude / Codex / Cursor 启动参数、鉴权、输出流与技能挂载方式不一致，直接盯终端难复盘，无人值守又有误改风险</p>
+                      <p><strong>措施：</strong>抽象统一 Agent Provider 与任务状态机，把各 CLI 收口为可观测执行；用人工卡点与 abort 回复约束关键决策，日志时间轴保留 stdout/stderr 便于回放</p>
+                    </div>
+                    <div class="challenge-item">
+                      <div class="name">技能与流程需可分发、可演进，且内外网形态并存</div>
+                      <p><strong>描述：</strong>内部需对接 Artifactory / Monolith 做一键安装与版本升级，同时希望能力可开源演示，避免两套产品长期分叉</p>
+                      <p><strong>措施：</strong>技能注册表 + 系统/个人流程模板分层；内网保留 JoyCode 与缺陷闭环适配，开源侧以 Schema 与 Provider 接口保持同源演进，用脚本同步 Skill 种子降低分叉成本</p>
+                    </div>
+                  </div>
+                  </div></div>
+
                 <div class="project" id="proj-ai-coding" data-project-item>
                   <button type="button" class="project-head" aria-expanded="true">
                     <span class="head-main">
@@ -1038,66 +1097,6 @@
                       <div class="name">PRD 文档解析、AI 自动编码全流程链路打通</div>
                       <p><strong>描述：</strong>原始 PRD 文档格式不统一，需自动拆分输出产品/研发/测试文档，再基于 TRD 驱动 AI 生成可提交业务代码，串联测试部署流程链路复杂</p>
                       <p><strong>措施：</strong>基于 Python 封装大模型接口实现文档智能解析、标准化 TRD 产出，依托自研 Vibe Coding 工具实现前后端 AI 辅助开发，串联流水线完成代码提交、测试、部署一体化</p>
-                    </div>
-                  </div>
-                  </div></div>
-
-                <div class="project" id="proj-hb-cli" data-project-item>
-                  <button type="button" class="project-head" aria-expanded="true">
-                    <span class="head-main">
-                      <span class="chevron" aria-hidden="true">
-                      <svg viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    </span>
-                      <h4 class="project-title">AI Agent 编排与人机协同平台</h4>
-                    </span>
-                    <span class="period-inline">2026 年 3 月 — 至今</span>
-                    <span class="hint">点击折叠</span>
-                  </button>
-                  <div class="project-tags">
-                    <span>Python</span><span>TypeScript</span><span>Node.js</span><span>Fastify</span><span>SQLite</span><span>CLI</span><span>Web UI</span><span>JSON Schema</span><span>YAML Workflow</span><span>JoyCode</span><span>Claude Code</span><span>Codex</span><span>Cursor Agent</span><span>钉钉 / 飞书</span>
-                  </div>
-                  <div class="project-body">
-                  <div class="block result">
-                    <div class="label">工作业绩</div>
-                    <p>从 0 到 1 落地 hb-cli，覆盖「安装 → 技能落地 → 缺陷/任务 → 流程编排 → Agent 执行 → 人工确认」主链路；沉淀 bug-fix、code-review、coding-impl、function-test、slow-sql 等可分发 Skill 与系统流程模板，支撑团队日常缺陷修复与编码审查；内网一键安装脚本与 Artifactory 发布链路跑通，试点团队可稳定自助升级；开源同源实现 agent-desk，对外展示可插拔 Provider 与 Schema 优先架构。</p>
-                  </div>
-                  <div class="block">
-                    <div class="label">项目介绍</div>
-                    <p>面向研发效能场景的本地优先 AI Coding Agent 编排工作台。一键安装 CLI 与本地面板，完成技能分发落地、缺陷拉取与修复闭环、多步工作流编排，并协同 JoyCode / Claude Code / Codex / Cursor 等 Agent 执行任务；在关键节点引入人工卡点与通知深链回写，避免无人值守黑盒跑飞。内部以 hb-cli 形态对接京东 Hiboos / JoyCode 生态分发；同源能力已开源为 <a class="ext-link" href="https://github.com/yangjieling/agent-desk" target="_blank" rel="noopener noreferrer">agent-desk</a>（Apache-2.0）。</p>
-                  </div>
-                  <div class="block">
-                    <div class="label">项目职责</div>
-                    <p>独立完成产品定位、架构设计与全栈落地：CLI、本地面板、任务生命周期与执行器、技能注册分发、工作流引擎、多 Agent Provider 适配、缺陷闭环与通知通道；负责内网安装包发布、版本自检升级及开源同源仓库维护。</p>
-                  </div>
-                  <div class="block">
-                    <div class="label">核心流程</div>
-                    <div class="flow-diagram">
-                      <pre class="mermaid">flowchart LR
-                      s1["一键安装 CLI / 技能"] --> s2["拉取缺陷并完整度分析"] --> s3["创建任务或工作流"] --> s4["多 Agent 本地执行"] --> s5["人工卡点确认"] --> s6["通知深链继续 / 中止"] --> s7["闭环归档"]
-                    </pre>
-                    </div>
-                  </div>
-                  
-                  <div class="block">
-                    <div class="label">技术亮点</div>
-                    <ul>
-                      <li>本地优先 harness：任务具备清晰生命周期（created → queued → running → awaiting → done/failed/stopped），执行器与控制面分离，支持停止、续跑与孤儿任务回收</li>
-                      <li>人工卡点协议：从 Agent 输出解析 oh-choices，任务进入 awaiting，配合 Webhook / 飞书 / 钉钉深链回复，实现「Agent 提议、人来批准」</li>
-                      <li>可插拔 Provider：Agent、Issue、Notify 后端可替换；技能以 SKILL.md 包注入提示词与工作目录，工作流支持共享会话与独立并行两种模式</li>
-                      <li>Schema 优先与双端形态：任务/工作流/设置结构可交换；内网 Python CLI + 面板对接 JoyCode 与缺陷平台，开源 TypeScript monorepo 保持同源能力对外可演示</li>
-                    </ul>
-                  </div>
-                  <div class="block">
-                    <div class="label">技术挑战</div>
-                    <div class="challenge-item">
-                      <div class="name">多 Coding Agent CLI 差异大、会话黑盒难治理</div>
-                      <p><strong>描述：</strong>JoyCode / Claude / Codex / Cursor 启动参数、鉴权、输出流与技能挂载方式不一致，直接盯终端难复盘，无人值守又有误改风险</p>
-                      <p><strong>措施：</strong>抽象统一 Agent Provider 与任务状态机，把各 CLI 收口为可观测执行；用人工卡点与 abort 回复约束关键决策，日志时间轴保留 stdout/stderr 便于回放</p>
-                    </div>
-                    <div class="challenge-item">
-                      <div class="name">技能与流程需可分发、可演进，且内外网形态并存</div>
-                      <p><strong>描述：</strong>内部需对接 Artifactory / Monolith 做一键安装与版本升级，同时希望能力可开源演示，避免两套产品长期分叉</p>
-                      <p><strong>措施：</strong>技能注册表 + 系统/个人流程模板分层；内网保留 JoyCode 与缺陷闭环适配，开源侧以 Schema 与 Provider 接口保持同源演进，用脚本同步 Skill 种子降低分叉成本</p>
                     </div>
                   </div>
                   </div></div>
