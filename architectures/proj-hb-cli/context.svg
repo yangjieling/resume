@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="700" viewBox="0 0 960 700" role="img" aria-labelledby="title desc">
+  <title id="title">AI Coding Agent 编排工作台 · 系统上下文</title>
+  <desc id="desc">C4 Context：研发与管理员使用编排工作台，对接外部 Coding Agent 与缺陷/通知/分发平台。</desc>
+
+  <defs>
+    <style type="text/css"><![CDATA[
+      .bg { fill: #fafafa; }
+      .lane { fill: #ffffff; stroke: #e4e4e7; stroke-width: 1; }
+      .lane-tint-a { fill: #f4f4f5; }
+      .lane-tint-b { fill: #fafafa; }
+      .lane-label {
+        fill: #71717a;
+        font: 600 11px "IBM Plex Sans", "Noto Sans SC", "PingFang SC", sans-serif;
+        letter-spacing: 0.06em;
+      }
+      .title {
+        fill: #18181b;
+        font: 700 20px "IBM Plex Sans", "Noto Sans SC", "PingFang SC", sans-serif;
+      }
+      .subtitle {
+        fill: #71717a;
+        font: 400 12px "IBM Plex Sans", "Noto Sans SC", "PingFang SC", sans-serif;
+      }
+      .box {
+        fill: #ffffff;
+        stroke: #18181b;
+        stroke-width: 1.25;
+      }
+      .box-muted {
+        fill: #ffffff;
+        stroke: #a1a1aa;
+        stroke-width: 1.15;
+      }
+      .box-label {
+        fill: #18181b;
+        font: 500 13px "IBM Plex Sans", "Noto Sans SC", "PingFang SC", sans-serif;
+        text-anchor: middle;
+      }
+      .box-sub {
+        fill: #71717a;
+        font: 400 10px "IBM Plex Sans", "Noto Sans SC", "PingFang SC", sans-serif;
+        text-anchor: middle;
+      }
+      .edge {
+        fill: none;
+        stroke: #18181b;
+        stroke-width: 1.35;
+        stroke-linecap: square;
+        stroke-linejoin: miter;
+      }
+      .edge-muted {
+        fill: none;
+        stroke: #a1a1aa;
+        stroke-width: 1.2;
+        stroke-linecap: square;
+        stroke-linejoin: miter;
+      }
+      .edge-sync {
+        fill: none;
+        stroke: #52525b;
+        stroke-width: 1.45;
+        stroke-linecap: square;
+        stroke-linejoin: miter;
+      }
+      .arrow { fill: #18181b; }
+      .arrow-muted { fill: #a1a1aa; }
+      .arrow-sync { fill: #52525b; }
+      .sync-label {
+        fill: #71717a;
+        font: 500 10px "IBM Plex Sans", "Noto Sans SC", "PingFang SC", sans-serif;
+      }
+    ]]></style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,1 L9,5 L0,9 z" class="arrow"/>
+    </marker>
+    <marker id="arrow-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,1 L9,5 L0,9 z" class="arrow-muted"/>
+    </marker>
+    <marker id="arrow-sync" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,1 L9,5 L0,9 z" class="arrow-sync"/>
+    </marker>
+  </defs>
+
+  <rect width="960" height="700" class="bg"/>
+
+  <text x="48" y="36" class="title">AI Coding Agent 编排工作台 · 系统上下文</text>
+  <text x="48" y="56" class="subtitle">C4 Context · hb-cli / agent-desk</text>
+
+  <rect x="40" y="72" width="880" height="100" rx="10" class="lane lane-tint-a"/>
+  <text x="56" y="92" class="lane-label">PEOPLE</text>
+
+  <rect x="40" y="192" width="880" height="110" rx="10" class="lane lane-tint-b"/>
+  <text x="56" y="212" class="lane-label">SYSTEM</text>
+
+  <rect x="40" y="322" width="880" height="110" rx="10" class="lane lane-tint-a"/>
+  <text x="56" y="342" class="lane-label">AGENTS</text>
+
+  <rect x="40" y="452" width="880" height="110" rx="10" class="lane lane-tint-b"/>
+  <text x="56" y="472" class="lane-label">PLATFORMS</text>
+
+  <rect x="180" y="108" width="220" height="44" rx="8" class="box"/>
+  <text x="290" y="136" class="box-label">研发工程师</text>
+
+  <rect x="560" y="108" width="220" height="44" rx="8" class="box"/>
+  <text x="670" y="136" class="box-label">试点管理员</text>
+
+  <rect x="240" y="222" width="480" height="60" rx="8" class="box"/>
+  <text x="480" y="246" class="box-label">AI Coding Agent 编排工作台</text>
+  <text x="480" y="266" class="box-sub">本地编排 · 技能 · 人工卡点</text>
+
+  <rect x="70" y="358" width="180" height="44" rx="8" class="box"/>
+  <text x="160" y="386" class="box-label">JoyCode</text>
+
+  <rect x="280" y="358" width="180" height="44" rx="8" class="box"/>
+  <text x="370" y="386" class="box-label">Claude Code</text>
+
+  <rect x="490" y="358" width="180" height="44" rx="8" class="box"/>
+  <text x="580" y="386" class="box-label">Codex</text>
+
+  <rect x="700" y="358" width="180" height="44" rx="8" class="box"/>
+  <text x="790" y="386" class="box-label">Cursor Agent</text>
+
+  <rect x="70" y="488" width="180" height="44" rx="8" class="box-muted"/>
+  <text x="160" y="516" class="box-label">缺陷平台</text>
+
+  <rect x="280" y="488" width="180" height="44" rx="8" class="box-muted"/>
+  <text x="370" y="516" class="box-label">飞书/钉钉</text>
+
+  <rect x="490" y="488" width="180" height="44" rx="8" class="box-muted"/>
+  <text x="580" y="516" class="box-label">Artifactory</text>
+
+  <rect x="700" y="488" width="180" height="44" rx="8" class="box-muted"/>
+  <text x="790" y="516" class="box-label">GitHub</text>
+
+  <!-- People → system -->
+  <path class="edge" d="M290,152 V172"/>
+  <path class="edge" d="M670,152 V172"/>
+  <path class="edge" d="M290,172 H670"/>
+  <path class="edge" marker-end="url(#arrow)" d="M480,172 V222"/>
+
+  <!-- System → agents bus -->
+  <path class="edge" d="M480,282 V316"/>
+  <path class="edge" d="M160,316 H790"/>
+  <path class="edge" marker-end="url(#arrow)" d="M160,316 V358"/>
+  <path class="edge" marker-end="url(#arrow)" d="M370,316 V358"/>
+  <path class="edge" marker-end="url(#arrow)" d="M580,316 V358"/>
+  <path class="edge" marker-end="url(#arrow)" d="M790,316 V358"/>
+
+  <!-- Left corridor: system ↔ 缺陷 / 飞书 (edge-sync + labels) -->
+  <path class="edge-sync" d="M240,252 H24 V510"/>
+  <path class="edge-sync" marker-end="url(#arrow-sync)" d="M24,510 H70"/>
+  <path class="edge-sync" marker-end="url(#arrow-sync)" d="M24,516 H280"/>
+  <path class="edge-sync" marker-end="url(#arrow-sync)" d="M370,488 V440 H24 V282 H240"/>
+  <text x="32" y="400" class="sync-label">缺陷·通知</text>
+
+  <!-- Right corridor: Artifactory → system · system → GitHub -->
+  <path class="edge-sync" marker-end="url(#arrow-sync)" d="M580,488 V440 H936 V252 H720"/>
+  <path class="edge-sync" marker-end="url(#arrow-sync)" d="M720,252 H936 V516 H790"/>
+  <text x="848" y="400" class="sync-label">分发·开源</text>
+
+  <text x="48" y="600" class="subtitle">人员汇入本系统；Agent 经中层总线扇出；平台经左右侧廊对接（sync 色 + 短标签，避免灰线歧义）。</text>
+  <text x="48" y="630" class="subtitle">左侧双向：缺陷拉取/回写 · 飞书/钉钉卡点；右侧：Artifactory 升级入 · GitHub 演示出。</text>
+  <text x="48" y="660" class="subtitle">正交 H/V only · spine + bus · zinc palette。</text>
+
+</svg>

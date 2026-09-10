@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="700" viewBox="0 0 960 700" role="img" aria-labelledby="title desc">
+  <title id="title">4S 店销售 BDC 平台 · 容器视图</title>
+  <desc id="desc">C4 Container：客户端经 API 网关到业务服务，异步中间件与数据面；含 MySQL→Canal→MQ→Redis/ES 同步链。</desc>
+
+  <defs>
+    <style type="text/css"><![CDATA[
+      .bg { fill: #fafafa; }
+      .lane { fill: #ffffff; stroke: #e4e4e7; stroke-width: 1; }
+      .lane-tint-a { fill: #f4f4f5; }
+      .lane-tint-b { fill: #fafafa; }
+      .lane-label {
+        fill: #71717a;
+        font: 600 11px "IBM Plex Sans", "Noto Sans SC", "PingFang SC", sans-serif;
+        letter-spacing: 0.06em;
+      }
+      .title {
+        fill: #18181b;
+        font: 700 20px "IBM Plex Sans", "Noto Sans SC", "PingFang SC", sans-serif;
+      }
+      .subtitle {
+        fill: #71717a;
+        font: 400 12px "IBM Plex Sans", "Noto Sans SC", "PingFang SC", sans-serif;
+      }
+      .box {
+        fill: #ffffff;
+        stroke: #18181b;
+        stroke-width: 1.25;
+      }
+      .box-muted {
+        fill: #ffffff;
+        stroke: #a1a1aa;
+        stroke-width: 1.15;
+      }
+      .box-label {
+        fill: #18181b;
+        font: 500 13px "IBM Plex Sans", "Noto Sans SC", "PingFang SC", sans-serif;
+        text-anchor: middle;
+      }
+      .box-sub {
+        fill: #71717a;
+        font: 400 10px "IBM Plex Sans", "Noto Sans SC", "PingFang SC", sans-serif;
+        text-anchor: middle;
+      }
+      .edge {
+        fill: none;
+        stroke: #18181b;
+        stroke-width: 1.35;
+        stroke-linecap: square;
+        stroke-linejoin: miter;
+      }
+      .edge-muted {
+        fill: none;
+        stroke: #a1a1aa;
+        stroke-width: 1.2;
+        stroke-linecap: square;
+        stroke-linejoin: miter;
+      }
+      .edge-sync {
+        fill: none;
+        stroke: #52525b;
+        stroke-width: 1.45;
+        stroke-linecap: square;
+        stroke-linejoin: miter;
+      }
+      .arrow { fill: #18181b; }
+      .arrow-muted { fill: #a1a1aa; }
+      .arrow-sync { fill: #52525b; }
+      .sync-label {
+        fill: #71717a;
+        font: 500 10px "IBM Plex Sans", "Noto Sans SC", "PingFang SC", sans-serif;
+      }
+    ]]></style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,1 L9,5 L0,9 z" class="arrow"/>
+    </marker>
+    <marker id="arrow-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,1 L9,5 L0,9 z" class="arrow-muted"/>
+    </marker>
+    <marker id="arrow-sync" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,1 L9,5 L0,9 z" class="arrow-sync"/>
+    </marker>
+  </defs>
+
+  <rect width="960" height="700" class="bg"/>
+
+  <text x="48" y="36" class="title">4S 店销售 BDC 平台 · 容器视图</text>
+  <text x="48" y="56" class="subtitle">C4 Container · 接入 → 业务 → 异步 → 数据</text>
+
+  <rect x="40" y="72" width="880" height="78" rx="10" class="lane lane-tint-a"/>
+  <text x="56" y="92" class="lane-label">CLIENT</text>
+
+  <rect x="40" y="166" width="880" height="78" rx="10" class="lane lane-tint-b"/>
+  <text x="56" y="186" class="lane-label">GATEWAY</text>
+
+  <rect x="40" y="260" width="880" height="100" rx="10" class="lane lane-tint-a"/>
+  <text x="56" y="280" class="lane-label">SERVICES</text>
+
+  <rect x="40" y="380" width="880" height="90" rx="10" class="lane lane-tint-b"/>
+  <text x="56" y="400" class="lane-label">ASYNC</text>
+
+  <rect x="40" y="490" width="880" height="110" rx="10" class="lane lane-tint-a"/>
+  <text x="56" y="510" class="lane-label">DATA</text>
+
+  <rect x="300" y="98" width="360" height="36" rx="8" class="box"/>
+  <text x="480" y="121" class="box-label">门店 Web / 移动端</text>
+
+  <rect x="400" y="192" width="160" height="36" rx="8" class="box"/>
+  <text x="480" y="215" class="box-label">API 网关</text>
+
+  <rect x="80" y="298" width="144" height="42" rx="8" class="box"/>
+  <text x="152" y="324" class="box-label">线索</text>
+
+  <rect x="244" y="298" width="144" height="42" rx="8" class="box"/>
+  <text x="316" y="324" class="box-label">销售 BDC</text>
+
+  <rect x="408" y="298" width="144" height="42" rx="8" class="box"/>
+  <text x="480" y="324" class="box-label">外呼</text>
+
+  <rect x="572" y="298" width="144" height="42" rx="8" class="box"/>
+  <text x="644" y="324" class="box-label">市场活动</text>
+
+  <rect x="736" y="298" width="144" height="42" rx="8" class="box"/>
+  <text x="808" y="324" class="box-label">接待预约</text>
+
+  <rect x="220" y="418" width="200" height="36" rx="8" class="box-muted"/>
+  <text x="320" y="441" class="box-label">RocketMQ</text>
+
+  <rect x="540" y="418" width="200" height="36" rx="8" class="box-muted"/>
+  <text x="640" y="441" class="box-label">Canal</text>
+
+  <rect x="70" y="530" width="200" height="48" rx="8" class="box"/>
+  <text x="170" y="550" class="box-label">MySQL 分库</text>
+  <text x="170" y="566" class="box-sub">ShardingSphere</text>
+
+  <rect x="300" y="536" width="140" height="36" rx="8" class="box"/>
+  <text x="370" y="559" class="box-label">Redis</text>
+
+  <rect x="480" y="536" width="160" height="36" rx="8" class="box"/>
+  <text x="560" y="559" class="box-label">Elasticsearch</text>
+
+  <rect x="700" y="536" width="140" height="36" rx="8" class="box"/>
+  <text x="770" y="559" class="box-label">OSS</text>
+
+  <!-- Client → GW -->
+  <path class="edge" marker-end="url(#arrow)" d="M480,134 V192"/>
+
+  <!-- GW → service bus -->
+  <path class="edge" d="M480,228 V280"/>
+  <path class="edge" d="M152,280 H808"/>
+  <path class="edge" marker-end="url(#arrow)" d="M152,280 V298"/>
+  <path class="edge" marker-end="url(#arrow)" d="M316,280 V298"/>
+  <path class="edge" marker-end="url(#arrow)" d="M480,280 V298"/>
+  <path class="edge" marker-end="url(#arrow)" d="M644,280 V298"/>
+  <path class="edge" marker-end="url(#arrow)" d="M808,280 V298"/>
+
+  <!-- Services → async/data bus -->
+  <path class="edge-muted" d="M152,340 V368"/>
+  <path class="edge-muted" d="M316,340 V368"/>
+  <path class="edge-muted" d="M480,340 V368"/>
+  <path class="edge-muted" d="M644,340 V368"/>
+  <path class="edge-muted" d="M808,340 V368"/>
+  <path class="edge-muted" d="M152,368 H808"/>
+
+  <path class="edge-muted" marker-end="url(#arrow-muted)" d="M320,368 V418"/>
+  <path class="edge-muted" marker-end="url(#arrow-muted)" d="M640,368 V418"/>
+  <path class="edge-muted" marker-end="url(#arrow-muted)" d="M170,368 V530"/>
+  <path class="edge-muted" marker-end="url(#arrow-muted)" d="M370,368 V536"/>
+  <path class="edge-muted" marker-end="url(#arrow-muted)" d="M770,368 V536"/>
+
+  <!-- Sync: MySQL → Canal → MQ → Redis/ES -->
+  <path class="edge-sync" marker-end="url(#arrow-sync)" d="M170,578 V600 H900 V436 H740"/>
+  <path class="edge-sync" marker-end="url(#arrow-sync)" d="M540,436 H420"/>
+  <path class="edge-sync" d="M320,454 V508"/>
+  <path class="edge-sync" d="M370,508 H560"/>
+  <path class="edge-sync" marker-end="url(#arrow-sync)" d="M370,508 V536"/>
+  <path class="edge-sync" marker-end="url(#arrow-sync)" d="M560,508 V536"/>
+
+  <text x="48" y="640" class="sync-label">同步链 · Sync</text>
+  <text x="140" y="640" class="sync-label">MySQL → Canal → RocketMQ → Redis / Elasticsearch</text>
+  <text x="48" y="672" class="subtitle">请求链路自上而下；同步链沿底部 / 右侧正交绕行，避免穿越业务框。</text>
+
+</svg>

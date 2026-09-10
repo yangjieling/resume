@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="560" viewBox="0 0 960 560" role="img" aria-labelledby="title desc">
+  <title id="title">4S 店销售 BDC 平台 · 系统上下文</title>
+  <desc id="desc">C4 Context：门店人员使用本平台，平台连接线上线索、外呼与短信/企微外部能力。</desc>
+
+  <defs>
+    <style type="text/css"><![CDATA[
+      .bg { fill: #fafafa; }
+      .lane { fill: #ffffff; stroke: #e4e4e7; stroke-width: 1; }
+      .lane-tint-a { fill: #f4f4f5; }
+      .lane-tint-b { fill: #fafafa; }
+      .lane-label {
+        fill: #71717a;
+        font: 600 11px "IBM Plex Sans", "Noto Sans SC", "PingFang SC", sans-serif;
+        letter-spacing: 0.06em;
+      }
+      .title {
+        fill: #18181b;
+        font: 700 20px "IBM Plex Sans", "Noto Sans SC", "PingFang SC", sans-serif;
+      }
+      .subtitle {
+        fill: #71717a;
+        font: 400 12px "IBM Plex Sans", "Noto Sans SC", "PingFang SC", sans-serif;
+      }
+      .box {
+        fill: #ffffff;
+        stroke: #18181b;
+        stroke-width: 1.25;
+      }
+      .box-muted {
+        fill: #ffffff;
+        stroke: #a1a1aa;
+        stroke-width: 1.15;
+      }
+      .box-label {
+        fill: #18181b;
+        font: 500 13px "IBM Plex Sans", "Noto Sans SC", "PingFang SC", sans-serif;
+        text-anchor: middle;
+      }
+      .box-sub {
+        fill: #71717a;
+        font: 400 10px "IBM Plex Sans", "Noto Sans SC", "PingFang SC", sans-serif;
+        text-anchor: middle;
+      }
+      .edge {
+        fill: none;
+        stroke: #18181b;
+        stroke-width: 1.35;
+        stroke-linecap: square;
+        stroke-linejoin: miter;
+      }
+      .edge-muted {
+        fill: none;
+        stroke: #a1a1aa;
+        stroke-width: 1.2;
+        stroke-linecap: square;
+        stroke-linejoin: miter;
+      }
+      .edge-sync {
+        fill: none;
+        stroke: #52525b;
+        stroke-width: 1.45;
+        stroke-linecap: square;
+        stroke-linejoin: miter;
+      }
+      .arrow { fill: #18181b; }
+      .arrow-muted { fill: #a1a1aa; }
+      .arrow-sync { fill: #52525b; }
+      .sync-label {
+        fill: #71717a;
+        font: 500 10px "IBM Plex Sans", "Noto Sans SC", "PingFang SC", sans-serif;
+      }
+    ]]></style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,1 L9,5 L0,9 z" class="arrow"/>
+    </marker>
+    <marker id="arrow-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,1 L9,5 L0,9 z" class="arrow-muted"/>
+    </marker>
+    <marker id="arrow-sync" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,1 L9,5 L0,9 z" class="arrow-sync"/>
+    </marker>
+  </defs>
+
+  <rect width="960" height="560" class="bg"/>
+
+  <text x="48" y="36" class="title">4S 店销售 BDC 平台 · 系统上下文</text>
+  <text x="48" y="56" class="subtitle">C4 Context · 谁用它、它连谁</text>
+
+  <rect x="40" y="72" width="880" height="110" rx="10" class="lane lane-tint-a"/>
+  <text x="56" y="92" class="lane-label">PEOPLE</text>
+
+  <rect x="40" y="202" width="880" height="120" rx="10" class="lane lane-tint-b"/>
+  <text x="56" y="222" class="lane-label">SYSTEM</text>
+
+  <rect x="40" y="342" width="880" height="110" rx="10" class="lane lane-tint-a"/>
+  <text x="56" y="362" class="lane-label">EXTERNAL</text>
+
+  <!-- People boxes -->
+  <rect x="100" y="110" width="200" height="48" rx="8" class="box"/>
+  <text x="200" y="140" class="box-label">BDC 坐席</text>
+
+  <rect x="380" y="110" width="200" height="48" rx="8" class="box"/>
+  <text x="480" y="140" class="box-label">销售顾问</text>
+
+  <rect x="660" y="110" width="200" height="48" rx="8" class="box"/>
+  <text x="760" y="140" class="box-label">店长 / 运营</text>
+
+  <!-- System primary -->
+  <rect x="260" y="240" width="440" height="56" rx="8" class="box"/>
+  <text x="480" y="262" class="box-label">4S 店销售 BDC 平台</text>
+  <text x="480" y="280" class="box-sub">线索 · 外呼 · 活动 · 接待</text>
+
+  <!-- External muted -->
+  <rect x="100" y="380" width="200" height="48" rx="8" class="box-muted"/>
+  <text x="200" y="410" class="box-label">线上线索渠道</text>
+
+  <rect x="380" y="380" width="200" height="48" rx="8" class="box-muted"/>
+  <text x="480" y="410" class="box-label">外呼能力</text>
+
+  <rect x="660" y="380" width="200" height="48" rx="8" class="box-muted"/>
+  <text x="760" y="410" class="box-label">短信 / 企微</text>
+
+  <!-- People → bus → system -->
+  <path class="edge" d="M200,158 V182"/>
+  <path class="edge" d="M480,158 V182"/>
+  <path class="edge" d="M760,158 V182"/>
+  <path class="edge" d="M200,182 H760"/>
+  <path class="edge" marker-end="url(#arrow)" d="M480,182 V240"/>
+
+  <!-- System → bus → externals -->
+  <path class="edge" d="M480,296 V320"/>
+  <path class="edge" d="M200,320 H760"/>
+  <path class="edge" marker-end="url(#arrow)" d="M200,320 V380"/>
+  <path class="edge" marker-end="url(#arrow)" d="M480,320 V380"/>
+  <path class="edge" marker-end="url(#arrow)" d="M760,320 V380"/>
+
+  <text x="48" y="500" class="subtitle">人员经上方总线汇入本系统；本系统经下方总线连出获客 / 外呼 / 触达通道。</text>
+  <text x="48" y="530" class="subtitle">正交 spine + bus；外部框使用 muted 描边以区分系统边界。</text>
+
+</svg>
